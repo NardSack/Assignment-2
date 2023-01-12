@@ -1,0 +1,59 @@
+body{margin: 0;}
+.blue{border: solid black 1px;
+background-color: blue;
+width:100%;
+
+text-align:center;
+color: white;}
+.red{border: solid black 1px;
+    background-color: red;
+height: fit-content;
+display: flex;
+flex-direction: row;
+justify-content: space-around;}
+
+.gold{border: solid black 1px;
+    background-color: gold;}
+
+.violet{background-color: violet;
+display: flex;
+flex-direction: column;
+}
+.checkbox-wrapper-overall
+{
+    margin: 20px 0 10px 0;
+}
+
+#spaceborder{margin: 10px;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+
+}
+#spaceborder h1 {padding: 5px 5px 5px 5px;
+    width: fit-content;
+text-align: center;
+border: solid black 1px;
+background-color: aliceblue;}
+.totalprice{
+    display: flex;
+    flex-direction: column;}
+#checkout{
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    color: #FFFFFF;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 16px;
+    min-height: 40px;
+    padding: 12px 14px;
+    text-align: center;
+}
+#checkout:hover,#checkout:active {
+    background-color: #FFFFFF;
+    background-position: 0 0;
+    color: #FF4742;
+}
+useraccount h2 {margin-bottom: 0%;}

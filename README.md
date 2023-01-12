@@ -3,6 +3,8 @@ Name of shop : NardShop
 1. Checkboxes to categorize products (eg. CLothing, Accessories)
 2. Inventory : shirt Pants Asscessory- earings,hats
 
+sign in and login button is javacript use of link html that cher shows
+
 
 Contact Us page： Instagram
 
