@@ -1,6 +1,6 @@
 .red{background-color: red;
+    width: 100%;
     
-    max-width: 100%;
     height:auto;
     background-size:100% 100%;
 
@@ -14,17 +14,29 @@
 
 .title{
     display:inline-block;
-    justify-content: center;
-    background-color: blue;
+    text-align: center;
+    background-color:initial;
     position: relative;
-    left:35%
-    
+    width: 100%;
+    color: black;
 
 }
-.product{
-    position:relative; 
-    width:20%;
+
+#featured-products{
+ display:flex;
+ flex-direction:row;
 }
+product-item
+{
+    display: flex;
+    flex-direction: column;
+}
+product-item p,.product{
+    /* position:relative;  */
+    width:20%;
+    min-width: 200px;
+}
+
 /* .ig{
     display:flex;
     position:relative;

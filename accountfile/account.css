@@ -38,22 +38,5 @@ background-color: aliceblue;}
 .totalprice{
     display: flex;
     flex-direction: column;}
-#checkout{
-    background: #FF4742;
-    border: 1px solid #FF4742;
-    border-radius: 6px;
-    color: #FFFFFF;
-    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-    font-size: 16px;
-    font-weight: 900;
-    line-height: 16px;
-    min-height: 40px;
-    padding: 12px 14px;
-    text-align: center;
-}
-#checkout:hover,#checkout:active {
-    background-color: #FFFFFF;
-    background-position: 0 0;
-    color: #FF4742;
-}
+
 useraccount h2 {margin-bottom: 0%;}
