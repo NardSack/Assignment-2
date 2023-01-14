@@ -3,12 +3,17 @@
     
     height:auto;
     background-size:100% 100%;
-
+    position:absolute;
+    
 }
+
 #content{
     /* display:flex; */
     width: 100%;
-    height:20%
+    height:20%;
+    
+    /* position:relative */
+    
     }
 
 
@@ -23,13 +28,20 @@
 }
 
 #featured-products{
- display:flex;
+  display:flex; 
  flex-direction:row;
+ position: relative;
+
+
+
+ /* position:static */
 }
 product-item
 {
-    display: flex;
+    display:flex;
     flex-direction: column;
+    
+    
 }
 product-item p,.product{
     /* position:relative;  */
