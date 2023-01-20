@@ -7,10 +7,11 @@ text-align:center;
 color: white;}
 .red{border: solid black 1px;
     background-color: red;
+min-height: 903px ;
 height: fit-content;
 display: flex;
 flex-direction: row;
-justify-content: space-around;}
+justify-content: space-between;}
 
 .gold{border: solid black 1px;
     background-color: gold;}
@@ -18,6 +19,7 @@ justify-content: space-around;}
 .violet{background-color: violet;
 display: flex;
 flex-direction: column;
+height: 600px;
 }
 .checkbox-wrapper-overall
 {
@@ -40,3 +42,20 @@ background-color: aliceblue;}
     flex-direction: column;}
 
 useraccount h2 {margin-bottom: 0%;}
+.user {border: solid black 1px;
+    background-color: aqua;
+display: flex;
+flex-direction: column;
+width: 60%;}
+voucherlist {border: solid black 1px;
+background-color: aliceblue;
+}
+changepass {
+text-align: right;
+margin-bottom: 20px;
+}
+changepass button {margin-right: 10px;} 
+#cart {width: 40%;}
+voucherlist {width: 90%;
+    height: 600px;
+margin-left: 5%;}

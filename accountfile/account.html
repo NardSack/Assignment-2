@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="button.css">
     <link rel="stylesheet" href="../HomePage/normal.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="account.js"></script>
 </head>
 <body>
     <!-- nardshop logo-->
@@ -18,7 +19,7 @@
         <!-- cart iventory -->
         <div class="gold" id="cart">
             <!-- Cart word -->
-            <div class="red" id="spaceborder"><h1>Cart</h1>
+            <div id="spaceborder"><h1>Cart</h1>
                 <div class="violet"><!--java for items in cart-->
                     <!-- need to java to make checking of the box -->
                     <div class="checkbox-wrapper-overall" id="id in the database [!important]">
@@ -38,24 +39,34 @@
                         </label>
                     </div>
                     <!-- calulate for toal price of sselected items -->
-                    <div class="totalprice">
-                        <h4>Total price: </h4>
-                        <totalprice><!--java scrpit answer here--></totalprice>
-                        <button id="checkout">checkout</button>
-
-                    </div>
+                    
 <!-- cart list -->
+                </div>
+                <div class="totalprice">
+                    <h4>Total price: <price></price> </h4>
+                    <totalprice><!--java scrpit answer here--></totalprice>
+                    <button id="checkout">checkout</button>
+
                 </div>
             </div>
         </div>
         <!--  Name of uessr-->
-        <div class="gold" >
-            <div class="red" id="spaceborder">
+        <div class="user" >
+            <div id="spaceborder">
             <useraccount>
                 <H2>Name of user</H2>
                 Number of Nards:
             </useraccount>
             </div>
+            <changepass>
+                <button>change the password
+                    
+                </button>
+            </changepass>
+            <voucherlist>
+                vouchers 
+
+            </voucherlist>
         </div>
     </div>
     <!-- cart -->
