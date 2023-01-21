@@ -87,6 +87,9 @@ Features to be added
 5) cart system and the math in counting total price 
 6) creating and signing in an account
 
+7)monopoly game, coins can be obtained , scratch card 
+8) scavenger hunt (maybe)
+
 
 ### Credits
 
