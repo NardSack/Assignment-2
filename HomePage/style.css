@@ -6,6 +6,9 @@
     position:absolute;
     
 }
+span{
+    color:red
+}
 
 #content{
     /* display:flex; */
