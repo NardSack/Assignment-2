@@ -19,6 +19,10 @@ filiter is dropdown
 chat is faded in and out (hidden when button press it moves from outside page to inside and than unhidden fade [to fade in])
 give option for size when clothing is picked(shirt and pants)
 
+dice game
+sales countdown timer
+scanveger hunt 
+scratch and win 
 ## readme starts here
 
 ### Ecommerce NardShop (Project Name)
@@ -29,6 +33,7 @@ users can own account in the shop and add in their credit card infomation for fa
 Wireframe was designed in a way that is simple and functional by having a popup navigation bar that have user account detail following with category filters to filiter the items.
 The layout was also rearranged for mobileview
 we look into shopee, lazada and other online ecommerce store for inspiration
+(Uniqlo)
  
 
 
