@@ -12,28 +12,33 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
   console.log(response);
+  let line2=``
+
   for (var i = 0; i < response.length; i++) {
     let description = response[i].Descriptionofproduct;
     let name = response[i].NameofProduct
     let price = response[i].PriceofProduct
     let type = response[i].TypeofProduct
     let link = response[i].PictureLink
-    if (i==0)
-    {let line = `<row id="classification"><product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item>`
-    document.getElementById("content").innerHTML+= line
-  }
-    else if (i%4 == 0)
-    {let line = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item><row>`
-    document.getElementById("content").innerHTML+= line
-  }
-    else
-    {let line = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item>`
-    document.getElementById("content").innerHTML+= line
-  }
+    let line1 = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item>`
+    line2 = `${line2}${line1}`
+    console.log(`${(i+1)%3} and ${i} and ${response.length}`)
+    if ((i+1)%3 == 0 && i != 0)
+    {
+
+    document.getElementById("content").innerHTML+= `<row>${line2}</row>`
+    line2=``
+    }
+    else if (i== response.length-1)
+    { console.log(i)
+      document.getElementById("content").innerHTML+= `<row>${line2}</row>`}
+
     
+
   }
   
 });
+
 
 
 var myIndex = 0;
