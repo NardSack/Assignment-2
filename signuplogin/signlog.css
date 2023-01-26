@@ -7,8 +7,12 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-.load{
-    display:none;
+#load {
+    display: none;
+    
+}
+#load2{
+    display:none
 }
 #logo {width: 100px;
 }
