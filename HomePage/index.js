@@ -18,8 +18,19 @@ $.ajax(settings).done(function (response) {
     let price = response[i].PriceofProduct
     let type = response[i].TypeofProduct
     let link = response[i].PictureLink
-    let line = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item>`
+    if (i==0)
+    {let line = `<row id="classification"><product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item>`
     document.getElementById("content").innerHTML+= line
+  }
+    else if (i%4 == 0)
+    {let line = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item><row>`
+    document.getElementById("content").innerHTML+= line
+  }
+    else
+    {let line = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item>`
+    document.getElementById("content").innerHTML+= line
+  }
+    
   }
   
 });
