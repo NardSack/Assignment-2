@@ -32,3 +32,13 @@ const container = document.querySelector(".container"),
     login.addEventListener("click", ( )=>{
         container.classList.remove("active");
     });
+
+
+    $(document).ready(function(){
+        $(".loadbutton").click(function(){
+          $("load").show();
+        });
+        $(".btn2").click(function(){
+          $("p").show();
+        });
+      });
