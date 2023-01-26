@@ -37,35 +37,23 @@ margin: 0;
 
 }
 
-#featured-products{
-  display:flex; 
- flex-direction:row;
- position: relative;
-
- width: 95%;
- /* background-color: blue; */
- margin: 0% 0% 0% 5%;
 
 
- /* position:static */
-}
 product-item
 {
     display:flex;
     flex-direction: column;
-    
-    
 }
-product-item p,.product{
-    /* position:relative;  */
+product-item img, product-item button,product-item p,product-item h4
+{
     width:20%;
     min-width: 200px;
+    margin:0;
 }
 
-/* .ig{
-    display:flex;
-    position:relative;
-    width:10px;
-    height:5%;
-    float:right;
-} */
+product-item button
+{
+    margin-bottom: 30px;
+}
+
+

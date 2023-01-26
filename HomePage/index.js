@@ -14,8 +14,14 @@ $.ajax(settings).done(function (response) {
   console.log(response);
   for (var i = 0; i < response.length; i++) {
     let description = response[i].Descriptionofproduct;
-    console.log(description)
+    let name = response[i].NameofProduct
+    let price = response[i].PriceofProduct
+    let type = response[i].TypeofProduct
+    let link = response[i].PictureLink
+    let line = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item>`
+    document.getElementById("content").innerHTML+= line
   }
+  
 });
 
 
