@@ -109,3 +109,6 @@ Features to be added
 ### Acknowledgement
 
 We Looked into Shopee, Lazada for Inspirations on the layout of our homepage.
+
+
+8 min video walkthrough with face cam
