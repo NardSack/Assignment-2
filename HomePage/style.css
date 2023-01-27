@@ -18,7 +18,9 @@ span{
     /* position:relative */
     
     }
-
+.w3-content-w3-section
+{z-index: -10;
+width: 100%;}
 /* #logo {width: 160px;
 } */
 /* .title{
@@ -33,7 +35,10 @@ span{
 bottom: 30px;
 margin: 0;
 } */
-
+separate {
+    position: absolute;
+    top: 0px;
+width: 100%;}
 
 
 product-item
