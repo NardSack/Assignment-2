@@ -65,3 +65,8 @@ product-item button
     {flex-direction: row;
     }
 } */
+
+row{
+    display:flex;
+    flex-direction: row;
+}

@@ -32,3 +32,46 @@ const container = document.querySelector(".container"),
     login.addEventListener("click", ( )=>{
         container.classList.remove("active");
     });
+
+
+    // $(document).ready(function(){
+    //     $(".loadbutton").click(function(){
+    //       $("load").show();
+    //     });
+    //     $(".btn2").click(function(){
+    //       $("p").show();
+    //     });
+    //   });
+
+
+
+      function show() {
+ 
+           
+        document.getElementById('load')
+                .style.display = "block";
+
+        // document.getElementById('loadbutton')
+        //         .style.display = "none";
+    
+    setTimeout(() => {
+const box = document.getElementById('load');
+box.style.display = 'none';
+
+}, 3000)}; 
+
+
+function show2() {
+ 
+           
+    document.getElementById('load2')
+            .style.display = "block";
+
+    // document.getElementById('loadbutton')
+    //         .style.display = "none";
+
+setTimeout(() => {
+const box = document.getElementById('load2');
+box.style.display = 'none';
+
+}, 3000)}; 
