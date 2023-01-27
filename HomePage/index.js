@@ -39,8 +39,6 @@ $.ajax(settings).done(function (response) {
   
 });
 
-
-
 var myIndex = 0;
   carousel();
   
@@ -55,5 +53,13 @@ var myIndex = 0;
     x[myIndex-1].style.display = "block";  
     setTimeout(carousel, 6000); // Change image every 6 seconds
   };
-
-
+// -----------
+// $(window).load(function() {
+//   $('#loading').hide();
+// });
+$(document).ready(function() {
+  $('#loading').hide();
+});
+// $( window ).on( "load", function() {
+//   $('#loading').hide();
+// });
