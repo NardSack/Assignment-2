@@ -25,7 +25,6 @@ $.ajax(settings).done(function (response) {
     console.log(`${(i+1)%3} and ${i} and ${response.length}`)
     if ((i+1)%3 == 0 && i != 0)
     {
-
     document.getElementById("content").innerHTML+= `<row>${line2}</row>`
     line2=``
     }
