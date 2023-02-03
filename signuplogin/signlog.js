@@ -48,14 +48,14 @@ const container = document.querySelector(".container"),
       function show() {
  
            
-        document.getElementById('load')
+        document.getElementById('loadd')
                 .style.display = "block";
 
         // document.getElementById('loadbutton')
         //         .style.display = "none";
     
     setTimeout(() => {
-const box = document.getElementById('load');
+const box = document.getElementById('loadd');
 box.style.display = 'none';
 
 }, 3000)}; 

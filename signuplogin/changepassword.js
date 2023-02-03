@@ -23,3 +23,18 @@ pwShowHide.forEach(eyeIcon =>{
         }) 
     })
 })
+
+function show() {
+ 
+           
+    document.getElementById('load')
+            .style.display = "block";
+
+    // document.getElementById('loadbutton')
+    //         .style.display = "none";
+
+setTimeout(() => {
+const box = document.getElementById('load');
+box.style.display = 'none';
+
+}, 3000)}; 
