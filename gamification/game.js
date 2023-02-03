@@ -118,12 +118,12 @@ window.onload = function() {
   
       //loss condition:
       //if current player drops below $0, they've lost
-      if (game.players[game.currentPlayer].cash < 0) {
-        alert("Sorry " + game.players[game.currentPlayer].name + ", you lose!");
-      }
+    //   if (game.players[game.currentPlayer].cash < 0) {
+    //     alert("Sorry " + game.players[game.currentPlayer].name + ", you lose!");
+    //   }
   
       //advance to next player
-      game.currentPlayer = nextPlayer(game.currentPlayer);
+    //   game.currentPlayer = nextPlayer(game.currentPlayer);
   
       //update info panel with name of current player
       updateByID("currentTurn", game.players[game.currentPlayer].name);
@@ -155,13 +155,23 @@ window.onload = function() {
       var currentSquare = parseInt(currentPlayer.currentSquare.slice(6));
   
       //figure out if the roll will put player past start. If so, reset and give money for passing start
-      if (currentSquare + moves <= totalSquares) {
-        var nextSquare = currentSquare + moves;
-      } else {
-        var nextSquare = currentSquare + moves - totalSquares;
-        currentPlayer.updateCash(currentPlayer.cash + 3);
-        console.log("3 Nards for passing start");
-      }
+       if (currentSquare + moves <= totalSquares) {
+         var nextSquare = currentSquare + moves;
+       } else {
+         var nextSquare = currentSquare + moves - totalSquares;
+         currentPlayer.updateCash(currentPlayer.cash + 3);
+         console.log("3 Nards for passing start");
+       }
+    // if (currentSquare + moves <= totalSquares) {
+    //     var nextSquare = currentSquare + moves;
+        
+    //     console.log("4 Nards for passing start");
+    //   } else {
+    //     var nextSquare = currentSquare + moves - totalSquares;
+    //     (currentSquare+1).endGame("You Completed The Game");
+    //     console.log("3 Nards for passing start");
+        
+    //   }
   
       //update current square in object (the string "square" plus the index of the next square)
       currentPlayer.currentSquare = "square" + nextSquare;
@@ -192,7 +202,7 @@ window.onload = function() {
           "messagePara",
           currentPlayer.name + ": You landed on start. Here's an extra 3 Nards"
         );
-      } else if (currentSquareObj.owner == "For Sale") {
+      } else if (currentSquareObj.owner == "Claim ME!") {
         //If the property is unowned, allow purchase:
         //check if owner can afford this square
         if (currentPlayer.cash <= currentSquareObj.value) {
@@ -217,7 +227,7 @@ window.onload = function() {
         //if player chooses to purchase, update properties:
         if (purchase) {
           //update ownder of current square
-          currentSquareObj.owner = currentPlayer.id;
+        //   currentSquareObj.owner = currentPlayer.id;
           //update cash in the player object
           currentPlayer.updateCash(currentPlayer.cash + currentSquareObj.value); // cahnged - to + to add money
           //log a message to the game board
@@ -226,35 +236,36 @@ window.onload = function() {
             currentPlayer.name + ": you now have " + currentPlayer.cash +"Nards"
           );
           //update the owner listed on the board
-          updateByID(
-            currentSquareObj.squareID + "-owner",
-            "Owner: " + game.players[game.currentPlayer].name
-          );
+        //   updateByID(
+        //     currentSquareObj.squareID + "-owner",
+        //     "Owner: " + game.players[game.currentPlayer].name
+        //   );
         }
-      } else if (currentSquareObj.owner == currentPlayer.id) {
-        //if property is owned by current player, continue
-        updateByID(
-          "messagePara",
-          currentPlayer.name + ": You own this property. Thanks for visiting!"
-        );
-      } else {
-        //charge rent
-        updateByID(
-          "messagePara",
-          currentPlayer.name +
-            ": This property is owned by " +
-            currentSquareObj.owner +
-            ". You owe $" +
-            currentSquareObj.rent +
-            ". You now have $" +
-            currentPlayer.cash
-        );
-  
-        var owner = game.players.filter(function(player) {
-          return player.id == currentSquareObj.owner;
-        });
-        currentPlayer.updateCash(currentPlayer.cash - currentSquareObj.rent);
+    //   } else if (currentSquareObj.owner == currentPlayer.id) {
+    //     //if property is owned by current player, continue
+    //     updateByID(
+    //       "messagePara",
+    //       currentPlayer.name + ": You own this property. Thanks for visiting!"
+    //     );
       }
+    //   } else {
+    //     //charge rent
+    //     updateByID(
+    //       "messagePara",
+    //       currentPlayer.name +
+    //         ": This property is owned by " +
+    //         currentSquareObj.owner +
+    //         ". You owe $" +
+    //         currentSquareObj.rent +
+    //         ". You now have $" +
+    //         currentPlayer.cash
+    //     );
+  
+    //     var owner = game.players.filter(function(player) {
+    //       return player.id == currentSquareObj.owner;
+    //     });
+    //     currentPlayer.updateCash(currentPlayer.cash - currentSquareObj.rent);
+    //   }
     }
   
     //function to update inner HTML based on element ID
@@ -275,7 +286,7 @@ window.onload = function() {
       //where does this appear on the game board?
       this.squareID = squareID;
       //who owns the property? (initially unowned)
-      this.owner = "For Sale";
+      this.owner = "Claim ME!";
     }
   
     /*constructor function for players*/
