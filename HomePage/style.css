@@ -47,6 +47,8 @@ product-item
     flex-direction: column;
     width: 100%;
     align-items:center;
+    max-height: 600px;
+    
 }
 product-item img, product-item button,product-item p,product-item h4
 {
@@ -110,4 +112,49 @@ row{
 .product-butt:active {
   background: var(--color);
   color: #fff;
+}
+
+@media (min-width:390px) and (max-width:844px) {
+
+
+ .title{
+    font-size: 20px;
+    /* float:right */
+ }
+ img#logo{
+    width:17%
+ }
+img#ig{
+    width:65px
+}
+/* product-item img{
+    width:
+} */
+ #content{
+    width:100%
+} 
+row{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+
+}
+product-item {
+    /* width:100px; */
+/* height: 150px; */
+    height:350px;
+    justify-content: space-between;
+}
+/* .shirt{
+    display:flex;
+    flex-direction: column;
+
+} */
+/* product-item img{
+    width:100px;
+    height:150px;
+} */
+.prod-desc{
+    display:none;
+}
 }

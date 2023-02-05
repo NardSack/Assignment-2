@@ -75,3 +75,4 @@ const box = document.getElementById('load2');
 box.style.display = 'none';
 
 }, 3000)}; 
+// -------------------------------------------------
