@@ -1,20 +1,57 @@
 body{margin: 0;}
-.blue{border: solid black 1px;
-background-color: blue;
-width:100%;
-
+nav{border: solid black 1px;
+/* background-color: rgb(219, 67, 67); */
 text-align:center;
-color: white;}
+color: rgb(0, 0, 0);}
+navigation  
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    height: 60px;
+    position: relative;
+    top: -10px;
+}
+navigation #homelink
+{
+    text-decoration: none;
+    color: black;
+}
+navigation #imagelink
+{
+    position: relative;
+    top: -50px;
+    left: 100px;
+
+    
+} 
+navigation a img 
+{
+
+    width: 70px;
+    height: 70px;
+    
+}
+navigation h1 
+{
+    position: relative;
+    top: 15px;
+}
 .red{border: solid black 1px;
-    background-color: red;
+    /* background-color: red; */
 min-height: 903px ;
 height: fit-content;
 display: flex;
 flex-direction: row;
 justify-content: space-between;}
 
-.gold{border: solid black 1px;
-    background-color: gold;}
+.gold{
+    border: solid black 1px;
+    background-color: gold;
+}
 
 .violet{background-color: violet;
 display: flex;
@@ -36,26 +73,67 @@ height: 600px;
     width: fit-content;
 text-align: center;
 border: solid black 1px;
-background-color: aliceblue;}
+background-color: aliceblue;
+}
+#spaceborder
+{text-align: center;
+align-items: center;
+width: 100%;
+margin: 0;
+border: none;
+}
 .totalprice{
     display: flex;
     flex-direction: column;}
 
-useraccount h2 {margin-bottom: 0%;}
-.user {border: solid black 1px;
-    background-color: aqua;
+
+useraccount 
+{
+position: absolute;
+margin-bottom: 0%;
+top: 65px;
+}
+
+
+.user {
+border: solid black 1px;
+background-color: lightblue;
 display: flex;
 flex-direction: column;
-width: 60%;}
+width: 60%;
+}
 voucherlist {border: solid black 1px;
 background-color: aliceblue;
+position: relative;
+top: 100px;
 }
-changepass {
+changepass a{
 text-align: right;
 margin-bottom: 20px;
+position: absolute;
+right: 10px;
+top: 130px;
+text-decoration: none;
+color: black;
+cursor: pointer;
 }
 changepass button {margin-right: 10px;} 
 #cart {width: 40%;}
 voucherlist {width: 90%;
-    height: 600px;
-margin-left: 5%;}
+height: 600px;
+margin-left: 5%;
+overflow-y: scroll;}
+.violet ,.totalprice,.checkbox-wrapper
+{
+    width: 80%;
+}
+.checkbox-wrapper
+{
+    width:90%;
+    overflow-x: scroll;/*need to check if information from api not more than 55 words*/
+}
+.checkbox-label img 
+{
+    width: 50px;
+    height: auto;
+}

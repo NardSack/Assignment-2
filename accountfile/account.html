@@ -12,8 +12,13 @@
     <script src="account.js"></script>
 </head>
 <body>
-    <!-- nardshop logo-->
-    <nav class="blue">nardshop</nav>
+
+    <nav>
+        <Navigation>    
+            <a href="../HomePage/index.html" id ="homelink"><h1 class="title"><span>UNIQLO</span></h1></a>
+            <a href="https://www.instagram.com/uniqlosg/" target="_blank" id="imagelink"><img src="../Asset folder/icons8-instagram-192 (1).png" alt="Image is gone" onmouseover="this.src='../Asset folder/icons8-instagram-192.png';" onmouseout="this.src='../Asset folder/icons8-instagram-192 (1).png';"></a>
+        </Navigation>
+    </nav>
     <!-- content of the page -->
     <div class="red"> 
         <!-- cart iventory -->
@@ -26,7 +31,10 @@
                         <label class="checkbox-wrapper">
                           <input type="checkbox" class="checkbox-input" />
                           <span class="checkbox-tile">
-                            <span class="checkbox-label">farni <!--pictures and description here--></span>
+                            <span class="checkbox-label"><img src="https://image.uniqlo.com/UQ/ST3/sg/imagesgoods/459263/item/sggoods_10_459263.jpg?width=1008&impolicy=quality_75"><!--pictures and description here--></span>
+                            <span class="checkbox-label"><img src="https://image.uniqlo.com/UQ/ST3/sg/imagesgoods/459263/item/sggoods_10_459263.jpg?width=1008&impolicy=quality_75"><!--pictures and description here--></span>
+                            <span class="checkbox-label">55 letters total<!--pictures and description here--></span>
+
                           </span>
                         </label>
                     </div>
@@ -52,12 +60,12 @@
         </div>
         <!--  Name of uessr-->
         <div class="user" >
-            <div id="spaceborder">
+            
             <useraccount>
                 <H2>Name of user</H2>
                 Number of Nards:
             </useraccount>
-            </div>
+            
             <changepass>
                 <!-- <button>change the password
                     
@@ -65,6 +73,7 @@
                 <a href="../signuplogin/changepassword.html">Change Password</a>
             </changepass>
             <voucherlist>
+                <span></span>
                 vouchers 
 
             </voucherlist>
