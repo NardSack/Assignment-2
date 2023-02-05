@@ -46,12 +46,16 @@ product-item
     display:flex;
     flex-direction: column;
     width: 100%;
+    align-items:center;
+    max-height: 600px;
+    
 }
 product-item img, product-item button,product-item p,product-item h4
 {
-    width:20%;
-    min-width: 200px;
+    width:60%;
+    min-width: 110px;
     margin:0;
+    
 }
 
 product-item button
@@ -69,4 +73,88 @@ product-item button
 row{
     display:flex;
     flex-direction: row;
+}
+
+
+
+
+/* CSS */
+.product-butt {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.product-butt:hover,
+.product-butt:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.product-butt:active {
+  background: var(--color);
+  color: #fff;
+}
+
+@media (min-width:390px) and (max-width:844px) {
+
+
+ .title{
+    font-size: 20px;
+    /* float:right */
+ }
+ img#logo{
+    width:17%
+ }
+img#ig{
+    width:65px
+}
+/* product-item img{
+    width:
+} */
+ #content{
+    width:100%
+} 
+row{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+
+}
+product-item {
+    /* width:100px; */
+/* height: 150px; */
+    height:350px;
+    justify-content: space-between;
+}
+/* .shirt{
+    display:flex;
+    flex-direction: column;
+
+} */
+/* product-item img{
+    width:100px;
+    height:150px;
+} */
+.prod-desc{
+    display:none;
+}
 }

@@ -20,7 +20,7 @@ $.ajax(settings).done(function (response) {
     let price = response[i].PriceofProduct
     let type = response[i].TypeofProduct
     let link = response[i].PictureLink
-    let line1 = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p>${description}</p><h3>${price}</h3></p><button id="checkout">Add to Cart</button></product-item>`
+    let line1 = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p class="prod-desc">${description}</p><h3>${price}</h3></p><button class="product-butt">View Product</button></product-item>`
     line2 = `${line2}${line1}`
     console.log(`${(i+1)%3} and ${i} and ${response.length}`)
     if ((i+1)%3 == 0 && i != 0)
