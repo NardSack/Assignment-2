@@ -63,10 +63,13 @@ div {
     font-size: 18px;
   }
   .middle{
-    background-color: #1c215b;
+     background-color: #1c215b;
+    /* background-color:black */
+
   }
   body{
     background-color: #1c215b;
+   
 
   }
  
@@ -80,7 +83,7 @@ div {
     border-right: 20px solid transparent;
     border-bottom: 40px solid black;
   }
-  
+/*   
   .Circle {
     display: inline-block;
     width: 40px;
@@ -89,7 +92,7 @@ div {
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
-  }
+  } */
   
   #player1-info_token {
     display: inline-block;
@@ -101,7 +104,7 @@ div {
     border-bottom: 20px solid black;
   }
   
-  #player2-info_token {
+  /* #player2-info_token {
     display: inline-block;
     margin: 0;
     width: 20px;
@@ -110,14 +113,20 @@ div {
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
-  }
-  @media screen and (min-width:390px) and (max-width:844px) {
+  } */
+  @media screen and (max-width: 576px) {
     #player1-info_token{
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
         border-bottom: 20px solid yellow;
     }
     p{
-        color:yellow
+        color:peru
+    }
+    #square2-name, #square2-name, #square3-name, #square6-name, #square7-name, #square8-name, #square10-name, #square12-name, #square13-name, #square16-name{
+      background-color: black;
+    }
+    body{
+      background-color: black;
     }
   }
