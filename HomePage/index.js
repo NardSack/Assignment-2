@@ -85,6 +85,44 @@ productpage.style.top="-110%"
         
       }
       
+      // var i=data.responseJSON
+      // console.log(i)
+      // foreach()
+
+      $("#submit").on("click", function (e) {
+        //prevent default action of the button 
+        e.preventDefault();
+      // let review = $("#review").value;
+      var review = document.getElementById("review").value;
+      
+      var jsondata = {
+        "reviewcomment": review,
+        "itemid":targetid,
+        "userid":1}; 
+        
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://assign2project-142c.restdb.io/rest/review/(ObjectID)",
+        "method": "PUT",
+        "headers": {
+          "content-type": "application/json",
+          "x-apikey": "63d1f6cda95709597409cf9e",
+          "cache-control": "no-cache"
+        },
+        "processData": false,
+        "data": JSON.stringify(jsondata)
+      }
+      
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      
+       
+       
+      })      
+    });
+
     });
     if (productpage.style.top=="-110%")
     {productpage.style.top="0"
@@ -98,4 +136,13 @@ function hiding(){
 }
 
 
-
+// function show(id){
+//     let id = id
+//     if (productpage.style.top=="-100%")
+//     {productpage.style.top="0"
+// }
+// }
+// function hide()
+// {productpage.style.top="-100%"
+// }
+// -------------------
