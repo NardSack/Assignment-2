@@ -38,3 +38,4 @@ const box = document.getElementById('load');
 box.style.display = 'none';
 
 }, 3000)}; 
+
