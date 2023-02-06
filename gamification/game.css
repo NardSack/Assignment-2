@@ -1,4 +1,4 @@
-
+/* //////////////////////mobile problem */
 div {
     margin: 0;
     padding: 0;
@@ -21,6 +21,7 @@ div {
   }
   
   .row {
+
     background-color: lightgreen;
     /* width: 60em;
     height: 12em; */
