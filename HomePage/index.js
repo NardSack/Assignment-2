@@ -10,8 +10,9 @@ var settings = {
   }
 }
 
-$.ajax(settings).done(function (response) {
+var data = $.ajax(settings).done(function (response) {
   console.log(response);
+  
   let line2=``
 
   for (var i = 0; i < response.length; i++) {
@@ -20,7 +21,9 @@ $.ajax(settings).done(function (response) {
     let price = response[i].PriceofProduct
     let type = response[i].TypeofProduct
     let link = response[i].PictureLink
-    let line1 = `<product-item class="${type}"><img src="${link}"><p><h4>${name}</h4><p class="prod-desc">${description}</p><h3>${price}</h3></p><button class="product-butt">View Product</button></product-item>`
+    let id = response[i]._id
+    let gender =response[i].Gender
+    let line1 = `<product-item class="${type},${gender}"><img src="${link}"><p><h4>${name}</h4><p class="prod-desc">${description}</p><h3>${price}</h3></p><button class="product-butt" id="${id}" onclick="">View Product</button></product-item>`
     line2 = `${line2}${line1}`
     console.log(`${(i+1)%3} and ${i} and ${response.length}`)
     if ((i+1)%3 == 0 && i != 0)
@@ -35,7 +38,7 @@ $.ajax(settings).done(function (response) {
     
 
   }
-  
+  return response
 });
 
 var myIndex = 0;
@@ -62,3 +65,45 @@ $(document).ready(function() {
 // $( window ).on( "load", function() {
 //   $('#loading').hide();
 // });
+
+var productpage=document.getElementById("productpage")
+
+productpage.style.top="-110%"
+// $.when(data).done(function(){})
+
+  document.getElementById("content").addEventListener("click", function(event){
+    console.log(event.target.id)
+    console.log(data.responseJSON)
+    var targetid = event.target.id
+    var list= data.responseJSON
+    
+    list.forEach(function(item) {
+      if (item._id==targetid)
+      {
+        productpage.querySelector("picture").innerHTML=`<img src="${item.PictureLink}"></img>`
+        productpage.querySelector("description").innerHTML=`<h2>${item.NameofProduct}</h2><h3>Type ${item.Gender} ${item.TypeofProduct}</h3></br><p>${item.Descriptionofproduct}</p></br><p>${item.PriceofProduct}</p>`
+        
+      }
+      
+    });
+    if (productpage.style.top=="-110%")
+    {productpage.style.top="0"
+  
+  }
+
+  });
+
+function hiding(){
+  productpage.style.top="-110%"
+}
+
+
+// function show(id){
+//     let id = id
+//     if (productpage.style.top=="-100%")
+//     {productpage.style.top="0"
+// }
+// }
+// function hide()
+// {productpage.style.top="-100%"
+// }

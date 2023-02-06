@@ -38,7 +38,8 @@ margin: 0;
 separate {
     position: absolute;
     top: 0px;
-width: 100%;}
+width: 100%;
+z-index: -1;}
 
 
 product-item
