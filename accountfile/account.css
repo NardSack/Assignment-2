@@ -89,7 +89,7 @@ border: none;
 
 useraccount 
 {
-position: absolute;
+
 margin-bottom: 0%;
 top: 65px;
 }
@@ -105,12 +105,16 @@ width: 60%;
 voucherlist {border: solid black 1px;
 background-color: aliceblue;
 position: relative;
-top: 100px;
+/* top: 100px; */
+}
+changepass
+{
+    text-align: right;
+    
 }
 changepass a{
-text-align: right;
 margin-bottom: 20px;
-position: absolute;
+
 right: 10px;
 top: 130px;
 text-decoration: none;
@@ -136,4 +140,21 @@ overflow-y: scroll;}
 {
     width: 50px;
     height: auto;
+}
+@media (max-width:900px)
+{
+    navigation #imagelink {
+        top: -40px;
+    }
+    .red
+    {
+        flex-direction: column;
+    }
+    #cart{
+        width: 100%;
+    }
+    .user{
+        width:100%
+   
+    }
 }

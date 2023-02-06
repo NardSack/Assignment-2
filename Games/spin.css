@@ -110,3 +110,40 @@ message
     width: 50%;
     text-align: center;
 }
+@media screen and (max-width:850px)
+{
+    .container
+    {
+        width: 600px;
+        height: 600px;
+    }
+    .container .spinbutton
+    {
+        width: 25%;
+        height: 25%;
+    }
+    message 
+    {
+        width:75%;
+        font-size: 1.5rem;
+        height: 50%;
+        top: 25%;
+        padding-top: 45%;
+    }
+}
+@media screen and (max-width:650px)
+{
+    .container
+    {
+        width: 400px;
+        height: 400px;
+    }
+}
+@media screen and (max-width:450px)
+{
+    .container
+    {
+        width: 300px;
+        height: 300px;
+    }
+}

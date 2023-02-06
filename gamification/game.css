@@ -1,4 +1,4 @@
-
+/* //////////////////////mobile problem */
 div {
     margin: 0;
     padding: 0;
@@ -12,16 +12,18 @@ div {
   .game_board {
     /* width: 60em;
     height: 48em; */
-    width: 70em;
+    width: 100%;
     height: 40em;
-    background-color: red;
+    background-color: none;
+
   }
   
   .row {
+
     background-color: lightgreen;
     /* width: 60em;
     height: 12em; */
-    width:70em;
+    width:100%;
     height:10em;
     display: table-row;
   }
@@ -33,8 +35,8 @@ div {
     display: table-cell;
     /* width: 12em;
     height: 12em; */
-    width:10em;
-    height:10em;
+    width:14.28%;
+    height:12em;
     text-align: center;
     padding: .5em;
     
@@ -114,7 +116,7 @@ div {
     -webkit-border-radius: 50px;
     border-radius: 50px;
   } */
-  @media screen and (max-width: 576px) {
+  @media only screen and (max-width: 576px) {
     #player1-info_token{
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
@@ -124,9 +126,9 @@ div {
         color:peru
     }
     #square2-name, #square2-name, #square3-name, #square6-name, #square7-name, #square8-name, #square10-name, #square12-name, #square13-name, #square16-name{
-      background-color: black;
+      background-color: white;
     }
-    body{
+    .game_board{
       background-color: black;
     }
   }

@@ -23,7 +23,7 @@ var data = $.ajax(settings).done(function (response) {
     let link = response[i].PictureLink
     let id = response[i]._id
     let gender =response[i].Gender
-    let line1 = `<product-item class="${type},${gender}"><img src="${link}"><p><h4>${name}</h4><p class="prod-desc">${description}</p><h3>${price}</h3></p><button class="product-butt" id="${id}" onclick="">View Product</button></product-item>`
+    let line1 = `<product-item class="${type} ${gender}"><img src="${link}"><p><h4>${name}</h4><p class="prod-desc">${description}</p><h3>${price}</h3></p><button class="product-butt" id="${id}" onclick="">View Product</button></product-item>`
     line2 = `${line2}${line1}`
     console.log(`${(i+1)%3} and ${i} and ${response.length}`)
     if ((i+1)%3 == 0 && i != 0)
@@ -98,12 +98,4 @@ function hiding(){
 }
 
 
-// function show(id){
-//     let id = id
-//     if (productpage.style.top=="-100%")
-//     {productpage.style.top="0"
-// }
-// }
-// function hide()
-// {productpage.style.top="-100%"
-// }
+
