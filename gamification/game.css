@@ -111,10 +111,10 @@ div {
     -webkit-border-radius: 50px;
     border-radius: 50px;
   }
-  @media (min-width:390px) and (max-width:844px) {
+  @media screen and (min-width:390px) and (max-width:844px) {
     #player1-info_token{
         border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+        border-right: 10px solid transparent;
         border-bottom: 20px solid yellow;
     }
     p{
