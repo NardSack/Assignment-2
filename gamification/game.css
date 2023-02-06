@@ -12,28 +12,31 @@ div {
   .game_board {
     /* width: 60em;
     height: 48em; */
-    width: 70em;
+    /* width: 70em; */
+     width:100% ;
     height: 40em;
-    background-color: red;
+    /* background-color: red; */
+    /* transform: rotate(90deg); */
+
   }
   
   .row {
     background-color: lightgreen;
     /* width: 60em;
     height: 12em; */
-    width:70em;
+    width:100%;
     height:10em;
     display: table-row;
   }
   
   .cell {
-    background-color: #1c215b;
+    /* background-color: #1c215b; */
     outline: .25em solid #1c215b;
     background-color:#ebeee9;
     display: table-cell;
     /* width: 12em;
     height: 12em; */
-    width:10em;
+    width:10%;
     height:10em;
     text-align: center;
     padding: .5em;
@@ -68,7 +71,7 @@ div {
 
   }
   body{
-    background-color: #1c215b;
+    background-color: black;
    
 
   }
@@ -114,19 +117,49 @@ div {
     -webkit-border-radius: 50px;
     border-radius: 50px;
   } */
-  @media screen and (max-width: 576px) {
-    #player1-info_token{
-        border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-        border-bottom: 20px solid yellow;
-    }
-    p{
-        color:peru
-    }
-    #square2-name, #square2-name, #square3-name, #square6-name, #square7-name, #square8-name, #square10-name, #square12-name, #square13-name, #square16-name{
-      background-color: black;
-    }
+  @media only screen and (max-width: 576px) {
+    
     body{
-      background-color: black;
+     overflow: hidden;
     }
-  }
+    .game_board {
+   
+       width:100% ;
+    position: relative;
+    left:120px;
+    top:50px;
+      /* transform: rotate(-90deg); */
+   
+    }
+    .middle{
+      background-color:#1c215b !important;
+      /* display:none */
+    }
+    .row {
+      /* background-color: lightgreen; */
+    
+      width:100%;
+      height:10px;
+      display: table-row;
+      
+    }
+   p{
+      margin:0;
+    }
+    .cell {
+ 
+      outline: .25em solid #1c215b;
+      background-color:#ebeee9;
+      display: table-cell;
+   
+      width:10%;
+      height:10px;
+      text-align: center;
+      padding: .5em;
+      /* transform: rotate(90deg); */
+      
+  
+    }
+ 
+    }
+  
