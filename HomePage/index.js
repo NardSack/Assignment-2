@@ -68,7 +68,7 @@ $(document).ready(function() {
 
 var productpage=document.getElementById("productpage")
 
-productpage.style.top="-110%"
+productpage.style.top="%"
 // $.when(data).done(function(){})
 
   document.getElementById("content").addEventListener("click", function(event){
