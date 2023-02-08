@@ -1,3 +1,21 @@
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://assign2project-142c.restdb.io/rest/accountdetails",
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": "63d1f6cda95709597409cf9e",
+      "cache-control": "no-cache"
+    }
+  }
+  
+  var accountlist = $.ajax(settings).done(function (response) {
+    console.log(response);
+    return response;
+  });
+
+
 const container = document.querySelector(".container"),
       pwShowHide = document.querySelectorAll(".showHidePw"),
       pwFields = document.querySelectorAll(".password"),
@@ -45,20 +63,25 @@ const container = document.querySelector(".container"),
 
 
 
-      function show() {
+function show() {
  
            
-        document.getElementById('loadd')
-                .style.display = "block";
+document.getElementById('loadd').style.display = "block";
 
         // document.getElementById('loadbutton')
         //         .style.display = "none";
-    
+        var name = document.querySelector("#contact-Name").value;
+        var password=document.querySelector("#contact-Password").value;
+        accountlist.forEach(element => {///////////////////////////////////////////////finsih the foreach loop
+            
+        });
     setTimeout(() => {
 const box = document.getElementById('loadd');
 box.style.display = 'none';
 
-}, 3000)}; 
+}, 3000)
+
+}; 
 
 
 function show2() {
@@ -76,3 +99,9 @@ box.style.display = 'none';
 
 }, 3000)}; 
 // -------------------------------------------------
+
+console.log(document.querySelector("#loadbutton"))
+// function findaccount(){
+// // event.preventDefault()
+
+// })

@@ -1,46 +1,17 @@
-/*
- This game is a very simple knock off of Monopoly.
- 
- It is set up using an IIFE to create a Game object. 
- 
- Then there are two types of ojbects used to create the game:
-    Square objects to represent the squares on the board (all known as properties, 
-	  but I'm mostly calling them Squares to avoid confusion with object properties).
-	  These store value, rent, name, etc. 
-	Player objects, representing the different players in the game. These store name,
-	  cash, ID, etc.
- These objects are created at the beginning of the game (within the Game object)
- and are updated as the game progresses.
- 
- The players roll the dice and progress around the board. They can buy property when they
- land on an open square. First player to go below $0 loses.
- 
- There are some limitations on what you can do in this game based on the amount of time I have left for this project:
- 1. two fixed players
- 2. no selling to other player
- 3. no auction
- 4. no houses or hotels
- 5. no mortgages
-*/
 
-window.onload = function() {
-    //find dice role button and bind takeTurn method
+
+  window.onload = function() {
     var rollButton = document.getElementById("rollButton");
     rollButton.onclick = Game.takeTurn;
   
-    //initialize board
     Game.populateBoard();
+
+
   };
   
-  //IIFE function to create game board object
   var Game = (function() {
-    //create a game object to hold the game board squares, methods, players
     var game = {};
   
-    //build an array of game propreties (calling them squares, as in squares on the game board, so
-    //I don't confuse them with object properties
-    //there are 11 properties on the game board.
-    //each has a unique name and value, so each will probably need to be built individually (not through a loop)
     game.squares = [
       new Square("Nothing", 0, "square2"),
       new Square("Nothing", 0, "square3"),
@@ -60,26 +31,16 @@ window.onload = function() {
       
     ];
   
-    //build an array of players
-    //note: initial version of the game only allows two fixed players
     game.players = [
-      new Player("You", 50, "Triangle", "player1"),
-    //    new Player("Ike", 1000, "Circle", "player2")
+      new Player("You", 0, "Triangle", "player1"),/////////////////////////restdb data here
     ];
   
-    //set the game property for current player. Initially player 1. (Using an index of the game.players array.)
     game.currentPlayer = 0;
   
-    //set up a method that will add the squares to the game board
     game.populateBoard = function() {
-      //loop through all the squares in the game board
       for (var i = 0; i < this.squares.length; i++) {
-        //get square ID from object and then find its div
         var id = this.squares[i].squareID;
   
-        //add info to squares
-        //paragraphs for square info preexist in HTML. That way they just have to be
-        //updated here and I can use the same method to create and update
         var squareName = document.getElementById(id + "-name");
         var squareValue = document.getElementById(id + "-value");
         var squareOwner = document.getElementById(id + "-owner");
@@ -89,72 +50,35 @@ window.onload = function() {
         squareOwner.innerHTML = this.squares[i].owner;
       }
   
-      //find the start square and add all players
-      var square1 = document.getElementById("square1-residents");
+      var square1 = document.getElementById("square1");/////////////////////////////////////////////////////////////////////////////////////////
       for (var i = 0; i < game.players.length; i++) {
-        //using private function to create tokens
         game.players[i].createToken(square1);
       }
   
-      //populate the info panel (using simple private function)
       updateByID("player1-info_name", game.players[0].name);
       updateByID("player1-info_cash", game.players[0].cash);
-    //   updateByID("player2-info_name", game.players[1].name);
-    //   updateByID("player2-info_cash", game.players[1].cash);
     };
   
-    //public function to handle taking of turn. Should:
-    //roll the dice
-    //advance the player
-    //call function to either allow purchase or charge rent
     game.takeTurn = function() {
-      //roll dice and advance player
       movePlayer();
   
-      //check the tile the player landed on
-      //if the tile is not owned, prompt player to buy
-      //if the tile is owned, charge rent and move on
+
       checkTile();
-  
-      //loss condition:
-      //if current player drops below $0, they've lost
-    //   if (game.players[game.currentPlayer].cash < 0) {
-    //     alert("Sorry " + game.players[game.currentPlayer].name + ", you lose!");
-    //   }
-  
-      //advance to next player
-    //   game.currentPlayer = nextPlayer(game.currentPlayer);
-  
-      //update info panel with name of current player
+      
+      // setTimeout(function(){
+      //   let currentdate = new Date();
+      //   let tomorrowdates=new Date(document.querySelector("info").innerHTML);
+      //   console.log(tomorrowdates)
+      //   countdown((tomorrowdates-currentdate));
+      //   },6000)
       updateByID("currentTurn", game.players[game.currentPlayer].name);
     };
-  
-    /****                    Game-level private functions                        *****/
-    //function to advance to the next player, going back to to player 1 when necessary
-    //(leaving this as a private function rather than method of Player because
-    //current player is more of a game level property than a player level property)
-    function nextPlayer(currentPlayer) {
-      var nextPlayer = currentPlayer + 1;
-  
-      if (nextPlayer == game.players.length) {
-        return 0;
-      }
-  
-      return nextPlayer;
-    }
-  
-    //function to "roll the dice" and advance the player to the appropriate square
     function movePlayer() {
-      //"dice roll". Should be between 1 and 4
-    //   var moves = Math.floor(Math.random() * (4 - 1) + 1);
         var moves = Math.floor(Math.random()*(3-1)+1);
-      //need the total number of squares, adding 1 because start isn't included in the squares array
       var totalSquares = game.squares.length + 1;
-      //get the current player and the square he's on
       var currentPlayer = game.players[game.currentPlayer];
       var currentSquare = parseInt(currentPlayer.currentSquare.slice(6));
   
-      //figure out if the roll will put player past start. If so, reset and give money for passing start
        if (currentSquare + moves <= totalSquares) {
          var nextSquare = currentSquare + moves;
        } else {
@@ -162,32 +86,17 @@ window.onload = function() {
          currentPlayer.updateCash(currentPlayer.cash + 3);
          console.log("3 Nards for passing start");
        }
-    // if (currentSquare + moves <= totalSquares) {
-    //     var nextSquare = currentSquare + moves;
-        
-    //     console.log("4 Nards for passing start");
-    //   } else {
-    //     var nextSquare = currentSquare + moves - totalSquares;
-    //     (currentSquare+1).endGame("You Completed The Game");
-    //     console.log("3 Nards for passing start");
-        
-    //   }
   
-      //update current square in object (the string "square" plus the index of the next square)
       currentPlayer.currentSquare = "square" + nextSquare;
   
-      //find and remove current player token
       var currentToken = document.getElementById(currentPlayer.id);
       currentToken.parentNode.removeChild(currentToken);
   
-      //add player to next location
       currentPlayer.createToken(
         document.getElementById(currentPlayer.currentSquare)
       );
     }
   
-    //function that checks the tile the player landed on and allows the player to act appropriately
-    //(buy, pay rent, or move on if owned)
     function checkTile() {
       var currentPlayer = game.players[game.currentPlayer];
       var currentSquareId = currentPlayer.currentSquare;
@@ -195,7 +104,6 @@ window.onload = function() {
         return square.squareID == currentSquareId;
       })[0];
   
-      //check if the player landed on start
       if (currentSquareId == "square1") {
         currentPlayer.updateCash(currentPlayer.cash + 3);
         updateByID(
@@ -203,93 +111,88 @@ window.onload = function() {
           currentPlayer.name + ": You landed on start. Here's an extra 3 Nards"
         );
       } else if (currentSquareObj.owner == "Claim ME!") {
-        //If the property is unowned, allow purchase:
-        //check if owner can afford this square
-        if (currentPlayer.cash <= currentSquareObj.value) {
-          updateByID(
-            "messagePara",
-            currentPlayer.name +
-              ": Sorry, you can't afford to purchase this property"
-          );
-          return;
-        }
-  
-        //prompt to buy tile
-        var purchase = window.confirm(
-          currentPlayer.name +
-            // ": This property is unowned. Would you like to purchase this property for $" +
-            // currentSquareObj.value +
-            // "?"
-            ": You Have Gotten " +
-            currentSquareObj.value +
-            "Nards !"
-        );
-        //if player chooses to purchase, update properties:
-        if (purchase) {
-          //update ownder of current square
-        //   currentSquareObj.owner = currentPlayer.id;
-          //update cash in the player object
+
           currentPlayer.updateCash(currentPlayer.cash + currentSquareObj.value); // cahnged - to + to add money
-          //log a message to the game board
+          var purchase = "Congratulation ! </br>You Have Gotten " +currentSquareObj.value +" Nards !<br>You have a total of "+ currentPlayer.cash+ " Nards";
+          document.querySelector("rewardmess h1").innerHTML= purchase
+          document.querySelector("rewardmess").classList.remove("hidden");
+
           updateByID(
             "messagePara",
-            currentPlayer.name + ": you now have " + currentPlayer.cash +"Nards"
+            "You have " + currentPlayer.cash +" Nards"
           );
-          //update the owner listed on the board
-        //   updateByID(
-        //     currentSquareObj.squareID + "-owner",
-        //     "Owner: " + game.players[game.currentPlayer].name
-        //   );
+          document.getElementById("rollButton").disabled=true
+          let tomorrowdate = new Date();
+          tomorrowdate.setDate(tomorrowdate.getDate()+1);
+          let currentdate = new Date();
+          document.querySelector("info").innerHTML=tomorrowdate
+          
+          let monotime= currentdate.getDate()+"/"+currentdate.getMonth()+"/"+currentdate.getFullYear()+" "+currentdate.getHours()+":"+currentdate.getMinutes()+":"+currentdate.getSeconds();
+          document.querySelector("notice").classList.add("selected")
+          document.querySelector("notice h1").innerHTML= "Return at "+tomorrowdate.getDate()+"/"+tomorrowdate.getMonth()+"/"+tomorrowdate.getFullYear()+" "+tomorrowdate.getHours()+":"+tomorrowdate.getMinutes()+":"+tomorrowdate.getSeconds();
+          
+          // var char = document.querySelector("span")
+          // var list = document.getElementsByClassName("cell square")
+          // console.log(char)
+          // console.log(list)
+          // const arr = Array.from(list)
+          // arr.forEach(function(item) {
+          //   console.log(item.innerHTML)
+          //   console.log(item.innerHTML.includes(char)||item.innerHTML.includes(`<p id="square1-residents"><span class="Triangle" id="player1"></span></p>`))
+          //   if (item.innerHTML.includes(char)||item.innerHTML.includes(`<p id="square1-residents"><span class="Triangle" id="player1"></span></p>`))
+          //   {
+          //     console.log(item.id)
+          //   }
+          // }); currentSquareId
+
+
+          //put api
+
+          // let url = "specify website"/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+          // let payload = {
+          //   _id:4,
+          //   name:,
+          //   password:,
+          //   uniqueid:,
+          //   datejoined:,
+          //   monopoly:monotime,
+          //   spinturn:,
+          //   monopolylocation:currentSquareId,
+          // voucherlist:,
+          // cart:,
+          // }
+          // let option ={
+          //   method:"PUT",
+          //   body: JSON.stringify(payload)
+          // }
+          // fetch(url,option)
+          // .then(Response =>console.log(Response.status))
+
+
+
+          unhidetime();
+          function unhidetime(){setTimeout(function(){
+            var element = document.querySelector("notice")
+            console.log(element.classList.contains("selected"))
+            document.querySelector("notice").classList.remove("hidden")
+          },5000);
         }
-    //   } else if (currentSquareObj.owner == currentPlayer.id) {
-    //     //if property is owned by current player, continue
-    //     updateByID(
-    //       "messagePara",
-    //       currentPlayer.name + ": You own this property. Thanks for visiting!"
-    //     );
       }
-    //   } else {
-    //     //charge rent
-    //     updateByID(
-    //       "messagePara",
-    //       currentPlayer.name +
-    //         ": This property is owned by " +
-    //         currentSquareObj.owner +
-    //         ". You owe $" +
-    //         currentSquareObj.rent +
-    //         ". You now have $" +
-    //         currentPlayer.cash
-    //     );
-  
-    //     var owner = game.players.filter(function(player) {
-    //       return player.id == currentSquareObj.owner;
-    //     });
-    //     currentPlayer.updateCash(currentPlayer.cash - currentSquareObj.rent);
-    //   }
+      
     }
-  
-    //function to update inner HTML based on element ID
+    
     function updateByID(id, msg) {
       document.getElementById(id).innerHTML = msg;
     }
-  
-    /****                       Constructor functions                             *****/
-  
-    /*constructor function for properties (game board squares)*/
+    
     function Square(name, value, squareID) {
-      //what is this property called?
       this.name = name;
-      //what's the value/initial purchase price?
       this.value = value;
-      //how much rent to charge when another player lands here? (30% of square value.)
       this.rent = value * 0.3;
-      //where does this appear on the game board?
       this.squareID = squareID;
-      //who owns the property? (initially unowned)
       this.owner = "Claim ME!";
     }
-  
-    /*constructor function for players*/
+    
     function Player(name, cash, token, id) {
       this.name = name;
       this.cash = cash;
@@ -298,22 +201,49 @@ window.onload = function() {
       this.currentSquare = "square1";
       this.ownedSquares = [];
     }
-  
-    //Add a method to create a player token span and add it to appropriate square
-    //Adding it as a prototype of the Player constructor function
+    
     Player.prototype.createToken = function(square) {
       var playerSpan = document.createElement("span");
       playerSpan.setAttribute("class", this.token);
       playerSpan.setAttribute("id", this.id);
       square.appendChild(playerSpan);
     };
-  
-    //method to update the amount of cash a player has
+    
     Player.prototype.updateCash = function(amount) {
       document.getElementById(this.id + "-info_cash").innerHTML = amount;
       this.cash = amount;
     };
-  
+    
     return game;
   })();
+  // function countdown( countdatetime ) {
+  //   let y = countdatetime
+  //   while (document.querySelector("notice").classList.contains("selected"))
+  //   {
+  //     setTimeout(function(){
+  //       console.log('reached')
+  //       var t=startcounting(y)
+  //       function startcounting(y)
+  //       {
+  //         const seconds = Math.floor( (y/1000) % 60 );
+  //         const minutes = Math.floor( (y/1000/60) % 60 );
+  //         const hours = Math.floor( (y/(1000*60*60)) % 24 );
+  //         const days = Math.floor( y/(1000*60*60*24) );
+  //         return{
+  //           days,
+  //           hours,
+  //           minutes,
+  //           seconds
+  //         };
+  //       }
+  //       document.querySelector("notice h1").innerHTML= "Return in "+t.days+"days"+ t.hours +'hours' + t.minutes +'minutes' + t.seconds+'seconds';
+  //       y-=1000
+  //       return y;
+  //     },1000)
+  //     if (y<=0)
+  //     {
+  //       break;
+  //     }
+  //   }
+  // };
   
