@@ -110,7 +110,46 @@ function hiding(){
 // }
 // ---------Adding Reviews----------
 
-getContacts();
+var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://signlog-8d3d.restdb.io/rest/review",
+  "method": "GET",
+  "headers": {
+    "content-type": "application/json",
+    "x-apikey": "63e129ac3bc6b255ed0c470f",
+    "cache-control": "no-cache"
+  }
+}
+
+var ii=$.ajax(setting).done(function (response) {
+  console.log(response);
+  return response;
+
+});
+
+console.log(ii)
+console.log(ii.responseJSON)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.getElementById("content").addEventListener("click", function(event){
 
 window.targetid = event.target.id
@@ -119,6 +158,7 @@ window.targetid = event.target.id
   
 
 });
+
 function saveData() {
   // Get the input values
   var comments = document.getElementById("comments").value;
@@ -159,20 +199,30 @@ function saveData() {
 
 function getContacts(limit = 10, all = true) {
 
-    fetch("https://signlog-8d3d.restdb.io/rest/review", {
-headers: {
-"Content-Type": "application/json; charset=utf-8",
-"x-apikey": "63e129ac3bc6b255ed0c470f"
-}
-})
+//     fetch(`https://signlog-8d3d.restdb.io/rest/review`, {
+// headers: {
+// "Content-Type": "application/json; charset=utf-8",
+// "x-apikey": "63e129ac3bc6b255ed0c470f"
+// }
+// })
 
-.then(response => response.json())
-.then(data => {
-let tableBody = document.getElementById("dataTableBody");
-data.forEach(item => {
-  let tableRow = document.createElement("tr");
-  tableRow.innerHTML = `<td>${item.comments}</td>`;
-  tableBody.appendChild(tableRow);
-});
-});
+
+// .then(response => response.json())
+
+
+
+// .then(data => {
+// let tableBody = document.getElementById("dataTableBody");
+// data.forEach(item => {
+//   let tableRow = document.createElement("tr");
+//   tableRow.innerHTML = `<td>${item.comments}</td>`;
+//   tableBody.appendChild(tableRow);
+
+  
+
+// });
+
+// })
+// .then(function(response){ii=response.data})
+
 }
