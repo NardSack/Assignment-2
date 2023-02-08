@@ -1,4 +1,20 @@
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://assign2project-142c.restdb.io/rest/accountdetails",
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": "63d1f6cda95709597409cf9e",
+      "cache-control": "no-cache"
+    }
+  }
 
+  var accountlist = $.ajax(settings).done(function (response) {
+    console.log(response);
+    return response;
+
+  });
 
 
     const container = document.querySelector(".container"),
@@ -57,23 +73,35 @@
             var password=document.querySelector("#contact-Password").value;
             console.log(names)
             console.log(password)
-            if (names === "raynard" && password ==="die")
-            {
-                //         localStorage.setItem("Name",element.name)
-                //         localStorage.setItem("monotimer",element.monopoly)
-                //         localStorage.setItem("location",element.monopolylocation)
-                //         localStorage.setItem("spin",element.spinturn)
-                //         localStorage.setItem("ID",element.uniqueid)
-                //         localStorage.setItem("vouchersJSON",element.voucherlist)
-                //         localStorage.setItem("cartJSON",element.Cart)
-                window.location="../accountfile/account.html"
+            console.log(accountlist.responseJSON[1].name)
+            console.log(accountlist.responseJSON)
+            console.log(accountlist.responseJSON[1].password)
+            
+            for (let index = 0; index < accountlist.responseJSON.length; index++) {
+                const element = accountlist.responseJSON[index];
+                console.log(1)
+                if (names == element.name && password ==element.password)
+                {
+                            localStorage.setItem("Name",element.name)
+                            localStorage.setItem("monotimer",element.monopoly)
+                            localStorage.setItem("location",element.monopolylocation)
+                            localStorage.setItem("spin",element.spinturn)
+                            localStorage.setItem("ID",element.uniqueid)
+                            localStorage.setItem("vouchersJSON",element.voucherlist)
+                            localStorage.setItem("cartJSON",element.Cart)
+                            
+                    window.location="../accountfile/account.html"
+                }
+                
             }
+            
+
                 console.log("reached")
                 document.querySelector("#contact-Name").style.border = "5px solid";
                 document.querySelector("#contact-Name").style.borderColor = "red";
                 document.querySelector("#contact-Password").style.border = "5px solid";
                 document.querySelector("#contact-Password").style.borderColor = "red";
-                alert("check Username and Password")
+
         },4000)
         }
         function show() {
@@ -99,15 +127,16 @@
                 {
                     currentdate=Date()
                     console.log(currentdate)
-                //         localStorage.setItem("Name",newnam)
-                //         localStorage.setItem("monotimer",0)------------ 
-                //         localStorage.setItem("location",1)
-                //         localStorage.setItem("spin",0)
-                //         localStorage.setItem("ID",element.uniqueid) -- use the length of the accout list 
-                //         localStorage.setItem("vouchersJSON",{})
-                //         localStorage.setItem("cartJSON",{})
+                        localStorage.setItem("Name",newnam)
+                        localStorage.setItem("monotimer",currentdate)
+                        localStorage.setItem("location",1)
+                        localStorage.setItem("spin",0)
+                        localStorage.setItem("ID",accountlist.responseJSON.length+1) //-- use the length of the account list 
+                        localStorage.setItem("vouchersJSON",{})
+                        localStorage.setItem("cartJSON",{})
                 window.location="../accountfile/account.html"
                 }
+                else{
                 console.log("reached")
                 document.querySelector("#new-name").style.border = "5px solid";
                 document.querySelector("#new-name").style.borderColor = "red";
@@ -118,6 +147,7 @@
                 document.querySelector("#new-password").style.border = "5px solid";
                 document.querySelector("#new-password").style.borderColor = "red";
                 alert("Please agree to terms and conditions")
+                }
             },4000)
         }
         function show() {
