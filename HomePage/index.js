@@ -68,7 +68,9 @@ $(document).ready(function() {
 
 var productpage=document.getElementById("productpage")
 
+// productpage.style.top="-110%"
 productpage.style.top="-110%"
+
 // $.when(data).done(function(){})
 
   document.getElementById("content").addEventListener("click", function(event){
@@ -87,7 +89,7 @@ productpage.style.top="-110%"
 
     });
     if (productpage.style.top=="-110%")
-    {productpage.style.top="-0"
+    {productpage.style.top="-0" //dawdad -0
   
   }
 
@@ -109,38 +111,40 @@ function hiding(){
 // ---------Adding Reviews----------
 
 getContacts();
+document.getElementById("content").addEventListener("click", function(event){
+
+window.targetid = event.target.id
+  // var list= data.responseJSON0
+  
+  
+
+});
 function saveData() {
   // Get the input values
   var comments = document.getElementById("comments").value;
   document.getElementById("outputField").innerHTML = comments;
 
-  document.getElementById("content").addEventListener("click", function(event){
-    console.log(event.target.id)
-    console.log(data.responseJSON)
-    var targetid = event.target.id
-    var list= data.responseJSON
+
+  datas = {
+    userid:100,
+    comments: comments,
+    itemid:targetid,
+  }
     
-    var datas = {
-      userid:100,
-      comments: comments,
-      itemid:targetid,
-    }
-    list.forEach(function(item) {
-      if (item._id==targetid)
-      {
-           fetch("https://assign2project-142c.restdb.io/rest/review  ", {
+
+           fetch("https://signlog-8d3d.restdb.io/rest/review  ", {
     method: "POST",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "63d1f6cda95709597409cf9e"
+      "x-apikey": "63e129ac3bc6b255ed0c470f"
     },
     body: JSON.stringify(datas)
     
       }
-      )
-      }
+      
 
-    });})
+    );
+   
     // var datas = {
     //   userid:100,
     //   comments: comments,
@@ -152,17 +156,13 @@ function saveData() {
 
   // Send the data to RESTdb
   
-   
- 
-
-   
 
 function getContacts(limit = 10, all = true) {
 
-    fetch("https://assign2project-142c.restdb.io/rest/review", {
+    fetch("https://signlog-8d3d.restdb.io/rest/review", {
 headers: {
 "Content-Type": "application/json; charset=utf-8",
-"x-apikey": "63d1f6cda95709597409cf9e"
+"x-apikey": "63e129ac3bc6b255ed0c470f"
 }
 })
 
