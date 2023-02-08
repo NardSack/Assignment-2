@@ -84,7 +84,7 @@ productpage.style.top="-110%"
       {
         productpage.querySelector("picture").innerHTML=`<img src="${item.PictureLink}" class="clickpic"></img>`
         productpage.querySelector("description").innerHTML=`<h2>${item.NameofProduct}</h2><h3>Type ${item.Gender} ${item.TypeofProduct}</h3></br><p>${item.Descriptionofproduct}</p></br><p>${item.PriceofProduct}</p>`
-        
+         
       }
 
     });
@@ -116,41 +116,60 @@ getContacts();
 function saveData() {
   // Get the input values
   var comments = document.getElementById("comments").value;
-  document.getElementById("outputField").innerHTML += "</br>"+comments; ///////
-//   var email = document.getElementById("email").value;
+  document.getElementById("outputField").innerHTML = comments;
 
-  // Prepare the data to be sent to RESTdb
-  var data = {
-    userid:100,
-    comments: comments,
-    itemid:101,
-    // email: email
-  };
-  ////// need to validate for non account user
-
-  // Send the data to RESTdb
-  fetch("https://signlog-8d3d.restdb.io/rest/review",
-  {
+  document.getElementById("content").addEventListener("click", function(event){
+    console.log(event.target.id)
+    console.log(data.responseJSON)
+    var targetid = event.target.id
+    var list= data.responseJSON
+    
+    var datas = {
+      userid:100,
+      comments: comments,
+      itemid:targetid,
+    }
+    list.forEach(function(item) {
+      if (item._id==targetid)
+      {
+           fetch("https://assign2project-142c.restdb.io/rest/review  ", {
     method: "POST",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "63e129ac3bc6b255ed0c470f"
+      "x-apikey": "63d1f6cda95709597409cf9e"
     },
-    body: JSON.stringify(data)
-  })
-  
+    body: JSON.stringify(datas)
+    
+      }
+      )
+      }
 
+    });})
+    // var datas = {
+    //   userid:100,
+    //   comments: comments,
+    //   itemid:101,
+    // }
+    
+     
+    };
+
+  // Send the data to RESTdb
   
-}
+   
+ 
+
+   
 
 function getContacts(limit = 10, all = true) {
 
-    fetch("https://signlog-8d3d.restdb.io/rest/review", {
+    fetch("https://assign2project-142c.restdb.io/rest/review", {
 headers: {
 "Content-Type": "application/json; charset=utf-8",
-"x-apikey": "63e129ac3bc6b255ed0c470f"
+"x-apikey": "63d1f6cda95709597409cf9e"
 }
 })
+
 .then(response => response.json())
 .then(data => {
 let tableBody = document.getElementById("dataTableBody");//////////////////
