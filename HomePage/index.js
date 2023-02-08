@@ -38,9 +38,11 @@ var data = $.ajax(settings).done(function (response) {
     
 
   }
+
   return response
 });
 
+console.log(data)
 var myIndex = 0;
   carousel();
   
@@ -106,13 +108,15 @@ function hiding(){
 // function hide()
 // {productpage.style.top="-100%"
 // }
+
+
 // ---------Adding Reviews----------
 
 getContacts();
 function saveData() {
   // Get the input values
   var comments = document.getElementById("comments").value;
-  document.getElementById("outputField").innerHTML = comments;
+  document.getElementById("outputField").innerHTML += "</br>"+comments; ///////
 //   var email = document.getElementById("email").value;
 
   // Prepare the data to be sent to RESTdb
@@ -122,9 +126,11 @@ function saveData() {
     itemid:101,
     // email: email
   };
+  ////// need to validate for non account user
 
   // Send the data to RESTdb
-  fetch("https://signlog-8d3d.restdb.io/rest/review", {
+  fetch("https://signlog-8d3d.restdb.io/rest/review",
+  {
     method: "POST",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -147,7 +153,7 @@ headers: {
 })
 .then(response => response.json())
 .then(data => {
-let tableBody = document.getElementById("dataTableBody");
+let tableBody = document.getElementById("dataTableBody");//////////////////
 data.forEach(item => {
   let tableRow = document.createElement("tr");
   tableRow.innerHTML = `<td>${item.comments}</td>`;
