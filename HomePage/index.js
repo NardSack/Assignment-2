@@ -112,11 +112,11 @@ function hiding(){
 
 // ---------Adding Reviews----------
 
-getContacts();
+// getContacts();
 function saveData() {
   // Get the input values
   var comments = document.getElementById("comments").value;
-  document.getElementById("outputField").innerHTML = comments;
+  document.getElementById("outputField").innerHTML += "</br>"+comments;
 
   document.getElementById("content").addEventListener("click", function(event){
     console.log(event.target.id)
@@ -124,24 +124,45 @@ function saveData() {
     var targetid = event.target.id
     var list= data.responseJSON
     
-    var datas = {
-      userid:100,
-      comments: comments,
-      itemid:targetid,
-    }
+    // var datas = {
+    //   userid:100,
+    //   comments: comments,
+    //   itemid:targetid,
+    // }
     list.forEach(function(item) {
       if (item._id==targetid)
       {
-           fetch("https://assign2project-142c.restdb.io/rest/review  ", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "63d1f6cda95709597409cf9e"
-    },
-    body: JSON.stringify(datas)
-    
+    //  let url = "https://assign2project-142c.restdb.io/rest/review"
+    //  var datas = 
+    // let option ={
+    //  method:"POST",
+    //   body: JSON.stringify(payload)
+    //   }
+    //   fetch(url,option)
+    //   .then(Response =>console.log(Response.status))
+    var jsondata = {
+        "userid":100,
+        "comments": comments,
+        "itemid":targetid,
       }
-      )
+    var update = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://assign2project-142c.restdb.io/rest/review",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "x-apikey": "63d1f6cda95709597409cf9e",
+        "cache-control": "no-cache"
+      },
+      "processData": false,
+      "data": JSON.stringify(jsondata)
+    }
+    $.ajax(update).done(function (response) {
+      console.log(response);
+    });
+
+
       }
 
     });})
@@ -161,25 +182,32 @@ function saveData() {
 
    
 
-function getContacts(limit = 10, all = true) {
+// function getContacts() {
 
-    fetch("https://assign2project-142c.restdb.io/rest/review", {
-headers: {
-"Content-Type": "application/json; charset=utf-8",
-"x-apikey": "63d1f6cda95709597409cf9e"
-}
-})
+//     fetch("https://assign2project-142c.restdb.io/rest/review", {
+// headers: {
+// "Content-Type": "application/json; charset=utf-8",
+// "x-apikey": "63d1f6cda95709597409cf9e"
+// }
+// })
 
-.then(response => response.json())
-.then(data => {
-let tableBody = document.getElementById("dataTableBody");//////////////////
-data.forEach(item => {
-  let tableRow = document.createElement("tr");
-  tableRow.innerHTML = `<td>${item.comments}</td>`;
-  tableBody.appendChild(tableRow);
-});
-});
+// .then(response => response.json())
+// .then(data => {
+// let tableBody = document.getElementById("dataTableBody");//////////////////
+// data.forEach(item => {
+//   let tableRow = document.createElement("tr");
+//   tableRow.innerHTML = `<td>${item.comments}</td>`;
+//   tableBody.appendChild(tableRow);
+// });
+// });
 
 
 
-}
+// }
+
+
+
+
+
+
+//boostedanimal1
