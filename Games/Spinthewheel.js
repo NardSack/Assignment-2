@@ -53,13 +53,42 @@ spinbtn.onclick =function(){
     let message = document.getElementById("mess");
     // message.removeAttribute("hidden")
     unhide();
-    message.innerHTML= `congrats you won <h3>${element.innerHTML}</h3>\n<a href="../HomePage/index.html">Go back to main page</a>`;
-
+    message.innerHTML= `congrats you won <h3>${element.innerHTML}</h3>\n<button id="home"><a href="../HomePage/index.html">Go back to main page</a></button>`;
+    console.log(message)
+    console.log(document.querySelector("#home"))
+    var updating = document.querySelector("#home")
+    updating.addEventListener("click",function updaterequest(event){
+        event.preventDefault()
+        console.log("works")
+        //     let url = "specify website"/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //               let payload = {
+        //                 _id:,
+        //                 name:,
+        //                 password:,
+        //                 uniqueid:,
+        //                 datejoined:,
+        //                 monopoly:,
+        //                 spinturn:,
+        //                 monopolylocation:,
+        //                 voucherlist:,
+        //                 cart:,
+        //               }
+        //               let option ={
+        //                 method:"PUT",
+        //                 body: JSON.stringify(payload)
+        //               }
+        //               fetch(url,option)
+        //               .then(Response =>console.log(Response.status))
+        event.stopPropagation();
+        window.location="../HomePage/index.html";
+        })
+        
 }
 function unhide(){setTimeout(function(){
     let message = document.getElementById("mess")
     message.removeAttribute("hidden")
     message.style.zIndex=30
 },13000);
+
 
 }

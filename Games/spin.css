@@ -110,6 +110,10 @@ message
     width: 50%;
     text-align: center;
 }
+message a 
+{text-decoration: none;
+font-size: larger;
+color:#111}
 @media screen and (max-width:850px)
 {
     .container

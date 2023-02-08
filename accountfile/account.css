@@ -148,7 +148,7 @@ overflow-y: scroll;}
     }
     .red
     {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     #cart{
         width: 100%;
