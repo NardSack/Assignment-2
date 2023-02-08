@@ -14,11 +14,16 @@ navigation
     height: 60px;
     position: relative;
     top: -10px;
+    background-color:#22252e ;
+}
+nav{
+    background-color:#323131 ;
 }
 navigation #homelink
 {
     text-decoration: none;
-    color: black;
+    color: white;
+    
 }
 navigation #imagelink
 {
@@ -50,10 +55,11 @@ justify-content: space-between;}
 
 .gold{
     border: solid black 1px;
-    background-color: gold;
+    background-color:white;
+   
 }
 
-.violet{background-color: violet;
+.violet{background-color: white;
 display: flex;
 flex-direction: column;
 height: 600px;
@@ -67,13 +73,16 @@ height: 600px;
     border: 2px black solid;
     display: flex;
     flex-direction: column;
+    /* background-color: rgb(200, 200, 200); */
 
 }
 #spaceborder h1 {padding: 5px 5px 5px 5px;
     width: fit-content;
 text-align: center;
-border: solid black 1px;
-background-color: aliceblue;
+/* border: solid black 1px; */
+/* background-color: #323131; */
+color:#c84235
+
 }
 #spaceborder
 {text-align: center;
@@ -93,17 +102,19 @@ useraccount
 margin-bottom: 0%;
 top: 65px;
 }
-
+useraccount h2{
+    color:#22252e;
+}
 
 .user {
 border: solid black 1px;
-background-color: lightblue;
+background-color:#c84235;
 display: flex;
 flex-direction: column;
 width: 60%;
 }
 voucherlist {border: solid black 1px;
-background-color: aliceblue;
+background-color:white;
 position: relative;
 /* top: 100px; */
 }
@@ -122,7 +133,8 @@ color: black;
 cursor: pointer;
 }
 changepass button {margin-right: 10px;} 
-#cart {width: 40%;}
+#cart {width: 40%;
+background-color:white;}
 voucherlist {width: 90%;
 height: 600px;
 margin-left: 5%;
