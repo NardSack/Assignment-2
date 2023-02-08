@@ -38,11 +38,9 @@ var data = $.ajax(settings).done(function (response) {
     
 
   }
-
   return response
 });
 
-console.log(data)
 var myIndex = 0;
   carousel();
   
@@ -70,7 +68,9 @@ $(document).ready(function() {
 
 var productpage=document.getElementById("productpage")
 
+// productpage.style.top="-110%"
 productpage.style.top="-110%"
+
 // $.when(data).done(function(){})
 
   document.getElementById("content").addEventListener("click", function(event){
@@ -89,7 +89,7 @@ productpage.style.top="-110%"
 
     });
     if (productpage.style.top=="-110%")
-    {productpage.style.top="-0"
+    {productpage.style.top="-0" //dawdad -0
   
   }
 
@@ -108,64 +108,43 @@ function hiding(){
 // function hide()
 // {productpage.style.top="-100%"
 // }
-
-
 // ---------Adding Reviews----------
 
-// getContacts();
+getContacts();
+document.getElementById("content").addEventListener("click", function(event){
+
+window.targetid = event.target.id
+  // var list= data.responseJSON0
+  
+  
+
+});
 function saveData() {
   // Get the input values
   var comments = document.getElementById("comments").value;
-  document.getElementById("outputField").innerHTML += "</br>"+comments;
+  document.getElementById("outputField").innerHTML = comments;
 
-  document.getElementById("content").addEventListener("click", function(event){
-    console.log(event.target.id)
-    console.log(data.responseJSON)
-    var targetid = event.target.id
-    var list= data.responseJSON
+
+  datas = {
+    userid:100,
+    comments: comments,
+    itemid:targetid,
+  }
     
-    // var datas = {
-    //   userid:100,
-    //   comments: comments,
-    //   itemid:targetid,
-    // }
-    list.forEach(function(item) {
-      if (item._id==targetid)
-      {
-    //  let url = "https://assign2project-142c.restdb.io/rest/review"
-    //  var datas = 
-    // let option ={
-    //  method:"POST",
-    //   body: JSON.stringify(payload)
-    //   }
-    //   fetch(url,option)
-    //   .then(Response =>console.log(Response.status))
-    var jsondata = {
-        "userid":100,
-        "comments": comments,
-        "itemid":targetid,
+
+           fetch("https://signlog-8d3d.restdb.io/rest/review  ", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": "63e129ac3bc6b255ed0c470f"
+    },
+    body: JSON.stringify(datas)
+    
       }
-    var update = {
-      "async": true,
-      "crossDomain": true,
-      "url": "https://assign2project-142c.restdb.io/rest/review",
-      "method": "POST",
-      "headers": {
-        "content-type": "application/json",
-        "x-apikey": "63d1f6cda95709597409cf9e",
-        "cache-control": "no-cache"
-      },
-      "processData": false,
-      "data": JSON.stringify(jsondata)
-    }
-    $.ajax(update).done(function (response) {
-      console.log(response);
-    });
+      
 
-
-      }
-
-    });})
+    );
+   
     // var datas = {
     //   userid:100,
     //   comments: comments,
@@ -177,37 +156,23 @@ function saveData() {
 
   // Send the data to RESTdb
   
-   
- 
 
-   
+function getContacts(limit = 10, all = true) {
 
-// function getContacts() {
+    fetch("https://signlog-8d3d.restdb.io/rest/review", {
+headers: {
+"Content-Type": "application/json; charset=utf-8",
+"x-apikey": "63e129ac3bc6b255ed0c470f"
+}
+})
 
-//     fetch("https://assign2project-142c.restdb.io/rest/review", {
-// headers: {
-// "Content-Type": "application/json; charset=utf-8",
-// "x-apikey": "63d1f6cda95709597409cf9e"
-// }
-// })
-
-// .then(response => response.json())
-// .then(data => {
-// let tableBody = document.getElementById("dataTableBody");//////////////////
-// data.forEach(item => {
-//   let tableRow = document.createElement("tr");
-//   tableRow.innerHTML = `<td>${item.comments}</td>`;
-//   tableBody.appendChild(tableRow);
-// });
-// });
-
-
-
-// }
-
-
-
-
-
-
-//boostedanimal1
+.then(response => response.json())
+.then(data => {
+let tableBody = document.getElementById("dataTableBody");
+data.forEach(item => {
+  let tableRow = document.createElement("tr");
+  tableRow.innerHTML = `<td>${item.comments}</td>`;
+  tableBody.appendChild(tableRow);
+});
+});
+}
