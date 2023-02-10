@@ -163,8 +163,28 @@ targetid = event.target.id
   // var list= data.responseJSON
   //  console.log(targetid)
    return targetid
-
 });
+localStorage.setItem("cartJSON",JSON.stringify(`{"pic":"https://image.uniqlo.com/UQ/ST3/sg/imagesgoods/457579/item/sggoods_09_457579.jpg?width=1008&impolicy=quality_75","description":"Selvedge denim looks and feels better the more you wear it. “Red ear” styling is a distinctive feature.","price": 60}`))
+var cart = JSON.parse(localStorage.getItem("cartJSON"))
+console.log(cart)  
+var display=document.querySelector("currentcart")
+  if (cart == "1")
+  {
+    display.innerHTML="click add to cart to add items to cart farni"
+  }
+  else
+  {
+    cart= cart.split(",")
+    cart.forEach(element => {
+      console.log(element)
+      console.log(element.pic)
+      // display.innerHTML+=`${element}`
+    });
+  }
+//   function displaycart(){
+
+// }
+
 
 
 

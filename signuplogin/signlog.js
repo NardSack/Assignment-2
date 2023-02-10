@@ -114,9 +114,35 @@ var settings = {
                             }
                             voucherlist=IT
                             }
-                            localStorage.setItem("vouchersJSON",voucherlist)
+                            localStorage.setItem("vouchersJSON",JSON.stringify(voucherlist))
+                            var cartlist = element.Cart
+                            if(cartlist == {})
+                            {
+                                cartlist ="1"
+                            }
+                            else
+                            {
+                            var IT='';
+                            let list = cartlist.slice(1,-1).split(",")
 
-                            localStorage.setItem("cartJSON",element.Cart)///////////////////
+                            for (let index = 0; index < list.length; index++) {
+                                const element = list[index];
+                                console.log(element)
+                                console.log(list.length)
+                                console.log(IT)
+                                if (index == list.length-1)
+                                {
+                                    IT+= element
+                                }
+                                else
+                                {
+                                    console.log("hit")
+                                    IT+= element+","
+                                }
+                            }
+                            cartlist=IT
+                        }
+                            localStorage.setItem("cartJSON",JSON.stringify(cartlist))
                             localStorage.setItem("password",element.password)
                             localStorage.setItem("id",element._id)
                             
