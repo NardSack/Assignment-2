@@ -120,11 +120,11 @@ function unhide(){setTimeout(function(){
     }
     if(voucherlist=='non')
     {
-        voucherlist=`{"voucher":${parseInt(localStorage.getItem("elementvoucher"))}}`
+        voucherlist={"voucher":parseInt(localStorage.getItem("elementvoucher"))}
     }
     else
     {
-    voucherlist=voucherlist+`,{"voucher":${parseInt(localStorage.getItem("elementvoucher"))}}`
+    voucherlist.push({"voucher":parseInt(localStorage.getItem("elementvoucher"))})
     }
     console.log(voucherlist)
     localStorage.setItem("spin",spin)
@@ -161,8 +161,8 @@ function unhide(){setTimeout(function(){
           "monopoly": localStorage.getItem("monotimer"),
           "spinturn": localStorage.getItem("spin"),
           "monopolylocation": localStorage.getItem("location"),
-          "voucherlist": [JSON.parse(localStorage.getItem("vouchersJSON"))],
-          "Cart": [JSON.parse(localStorage.getItem("cartJSON"))]
+          "voucherlist": JSON.parse(localStorage.getItem("vouchersJSON")),
+          "Cart": JSON.parse(localStorage.getItem("cartJSON"))
         };
           var settings = {
             "async": true,

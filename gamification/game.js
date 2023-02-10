@@ -48,7 +48,7 @@
     ];
   
     game.players = [
-      new Player("You", `${parseInt(localStorage.getItem("spin"),10)}`, "Triangle", "player1"),/////////////////////////restdb data here
+      new Player("You", `${parseInt(localStorage.getItem("spin"))}`, "Triangle", "player1"),/////////////////////////restdb data here
     ];
   
     game.currentPlayer = 0;
@@ -174,8 +174,8 @@
           "monopoly": localStorage.setItem("monotimer",tomorrowdate),
           "spinturn": localStorage.getItem("spin"),
           "monopolylocation": localStorage.setItem("location",currentSquareId),
-          "voucherlist": [JSON.parse(localStorage.getItem("vouchersJSON"))],
-          "Cart": [JSON.parse(localStorage.getItem("cartJSON"))]};
+          "voucherlist": JSON.parse(localStorage.getItem("vouchersJSON")),
+          "Cart": JSON.parse(localStorage.getItem("cartJSON"))};
           var settings = {
             "async": true,
             "crossDomain": true,

@@ -24,6 +24,7 @@ pwShowHide.forEach(eyeIcon =>{
     })
 })
 
+
 function show() {
  
            
@@ -32,10 +33,11 @@ function show() {
 
     // document.getElementById('loadbutton')
     //         .style.display = "none";
-
+var newpass = document.querySelector("#password")
+localStorage.setItem("password",newpass)
 setTimeout(() => {
 const box = document.getElementById('load');
 box.style.display = 'none';
-
+window.location="../HomePage/index.html"
 }, 3000)}; 
 
