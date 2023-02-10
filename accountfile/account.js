@@ -32,11 +32,11 @@ var jsondata ={"name": localStorage.getItem("Name"),
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://assignment2-09fd.restdb.io/rest/accountdetails/(ObjectID)",
+  "url": `https://assignment2-09fd.restdb.io/rest/accountdetails/${localStorage.getItem("id")}`,
   "method": "PUT",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": "<your CORS apikey here>",
+    "x-apikey": "63e129ac3bc6b255ed0c470f",
     "cache-control": "no-cache"
   },
   "processData": false,
