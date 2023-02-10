@@ -105,5 +105,7 @@ Credits to uniqlo for all the images of the products used inside the website ( L
 
 We Looked into Shopee, Lazada and uniqlo for Inspirations on the layout of our homepage.
 
-
+Contributions of Work
+Lyna - did most of the front-end development (Html,CSS and @media quries)
+Raynard - did most of the Back-end (API-POST PUT AND GET,handing of object and data so can be read accross the multiple HTML and most of the Javascript )
 8 min video walkthrough with face cam
