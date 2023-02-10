@@ -1,8 +1,8 @@
 var cart=localStorage.getItem("cartJSON")
 
  const para = document.createElement("span");
-para.className="checkbox-tile";
-document.querySelector(".checkbox-tile").innerHTML=cart
+para.className="checkbox-label";
+document.querySelector(".checkbox-label").innerHTML=cart
 
 
 var name= localStorage.getItem("Name")

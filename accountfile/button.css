@@ -97,3 +97,43 @@
   background-position: 0 0;
   color: #FF4742;
 }
+
+butcon{
+  display:flex;
+  flex-direction: row;
+}
+
+.button {
+  padding: 0.5rem 2rem;
+  border: 0.2rem solid darkred;
+  border-radius: 0.5rem;
+  width:150px;
+  margin-left: 20px;
+  text-decoration: none;
+ 
+  /* match default body styles */
+  font-size: 1.2rem; 
+  color: cornsilk;
+  background-color: darkred;
+}
+
+.button:active {
+  /* Invert bg & text colors when pressed */
+  color: darkred;
+  background-color: cornsilk;
+}
+
+
+.button--inverted {
+  border-color: cornsilk;
+  width:210px;
+  /* match inverted container */
+  color: darkred;
+  background-color: cornsilk;
+}
+
+.button--inverted:active {
+  /* Invert bg & text colors when pressed */
+  color: cornsilk;
+  background-color: darkred;
+}

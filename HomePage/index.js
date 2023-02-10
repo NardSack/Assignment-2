@@ -110,26 +110,35 @@ function hiding(){
 // }
 // ---------Adding Reviews----------
 
-var setting = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://signlog-8d3d.restdb.io/rest/review",
-  "method": "GET",
-  "headers": {
-    "content-type": "application/json",
-    "x-apikey": "63e129ac3bc6b255ed0c470f",
-    "cache-control": "no-cache"
-  }
-}
+// var setting = {
+//   "async": true,
+//   "crossDomain": true,
+//   "url": "https://assign2project-142c.restdb.io/rest/review",
+//   "method": "GET",
+//   "headers": {
+//     "content-type": "application/json",
+//     "x-apikey": "63d1f6cda95709597409cf9e",
+//     "cache-control": "no-cache"
+//   }
+// }
 
-var ii=$.ajax(setting).done(function (response) {
-  console.log(response);
-  return response;
+// var farni = $.ajax(setting).done(function (response) {
+//   console.log(response);
+//   let datajson;
+//   for (var i = 0; i < response.length; i++)
+//   {
+//     let itemid = response[i].itemid
+//     let userid=response[i].userid
+//     let comments = response[i].comments
+    
+//     datajson += {itemid,userid,comments}
+//   }
+//   localStorage.setItem("reviewdata",datajson)
 
-});
+// });
 
-console.log(ii)
-// console.log(ii.responseJSON)
+// console.log(localStorage.getItem("reviewdata"))
+
 
 
 
