@@ -2,8 +2,24 @@
 
   window.onload = function() {
     var rollButton = document.getElementById("rollButton");
+    let today = new Date()
+    let checkeddate = new Date(localStorage.getItem("monotimer"))
+    console.log(checkeddate)
+    // checkeddate.setDate(checkeddate.getDate()+1)
+    let yourname= localStorage.getItem("name")
+    console.log(yourname)
+    if (yourname==null)
+    {yourname = "UnknownUser"}
+    document.querySelector("#currentTurn").innerHTML=yourname
+    if(today-checkeddate <= 0)
+    {
+      rollButton.disabled=true;
+      document.querySelector("notice").classList.add("selected")
+      document.querySelector("notice").classList.remove("hidden")
+      document.querySelector("notice h1").innerHTML= "Return at "+checkeddate.getDate()+"/"+(checkeddate.getMonth()+1)+"/"+checkeddate.getFullYear()+" "+checkeddate.getHours()+":"+checkeddate.getMinutes()+":"+checkeddate.getSeconds();
+    }
+    
     rollButton.onclick = Game.takeTurn;
-  
     Game.populateBoard();
 
 
@@ -15,24 +31,24 @@
     game.squares = [
       new Square("Nothing", 0, "square2"),
       new Square("Nothing", 0, "square3"),
-      new Square("Nards", 4, "square4"),
-      new Square("Nards", 5, "square5"),
+      new Square("Spins", 1, "square4"),
+      new Square("Spins", 1, "square5"),
       new Square("Nothing", 0, "square6"),
       new Square("Nothing", 0, "square7"),
       new Square("Nothing", 0, "square8"),
-      new Square("Nards", 3, "square9"),
+      new Square("Spins", 1, "square9"),
       new Square("Nothing", 0, "square10"),
-      new Square("JACKPOT NARDS!", 10, "square11"),
+      new Square("JACKPOT Spins!", 4, "square11"),
        new Square("Nothing", 0, "square12"),
         new Square("Nothing", 0, "square13"),
-        new Square("Nards", 5, "square14"),
-        new Square("Nards", 3, "square15"),
+        new Square("Spins", 1, "square14"),
+        new Square("Spins", 1, "square15"),
      new Square("Nothing", 0, "square16")
       
     ];
   
     game.players = [
-      new Player("You", 0, "Triangle", "player1"),/////////////////////////restdb data here
+      new Player("You", `${parseInt(localStorage.getItem("spin"),10)}`, "Triangle", "player1"),/////////////////////////restdb data here
     ];
   
     game.currentPlayer = 0;
@@ -46,12 +62,20 @@
         var squareOwner = document.getElementById(id + "-owner");
   
         squareName.innerHTML = this.squares[i].name;
-        squareValue.innerHTML = "$" + this.squares[i].value;
+        squareValue.innerHTML = this.squares[i].value+" spins";
         squareOwner.innerHTML = this.squares[i].owner;
       }
-  
-      var square1 = document.getElementById("square1");/////////////////////////////////////////////////////////////////////////////////////////
-      for (var i = 0; i < game.players.length; i++) {
+      if (localStorage.getItem("location")==1)
+      {
+        var square1 = document.getElementById("square1");
+      }
+      else
+      {
+        var square1 = document.getElementById(`${localStorage.getItem("location")}`);
+      }
+      ////////////////////////////test pls
+      for (var i = 0; i < game.players.length; i++) 
+      {
         game.players[i].createToken(square1);
       }
   
@@ -65,12 +89,7 @@
 
       checkTile();
       
-      // setTimeout(function(){
-      //   let currentdate = new Date();
-      //   let tomorrowdates=new Date(document.querySelector("info").innerHTML);
-      //   console.log(tomorrowdates)
-      //   countdown((tomorrowdates-currentdate));
-      //   },6000)
+
       updateByID("currentTurn", game.players[game.currentPlayer].name);
     };
     function movePlayer() {
@@ -83,8 +102,8 @@
          var nextSquare = currentSquare + moves;
        } else {
          var nextSquare = currentSquare + moves - totalSquares;
-         currentPlayer.updateCash(currentPlayer.cash + 3);
-         console.log("3 Nards for passing start");
+        //  currentPlayer.updateCash(currentPlayer.cash + 3);
+        //  console.log("3 Spins for passing start");
        }
   
       currentPlayer.currentSquare = "square" + nextSquare;
@@ -105,31 +124,32 @@
       })[0];
   
       if (currentSquareId == "square1") {
-        currentPlayer.updateCash(currentPlayer.cash + 3);
-        updateByID(
-          "messagePara",
-          currentPlayer.name + ": You landed on start. Here's an extra 3 Nards"
-        );
+        // currentPlayer.updateCash(currentPlayer.cash + 3);
+        // updateByID(
+        //   "messagePara",
+        //   currentPlayer.name + ": You landed on start. Here's an extra 3 Spins"
+        // );
       } else if (currentSquareObj.owner == "Claim ME!") {
 
           currentPlayer.updateCash(currentPlayer.cash + currentSquareObj.value); // cahnged - to + to add money
-          var purchase = "Congratulation ! </br>You Have Gotten " +currentSquareObj.value +" Nards !<br>You have a total of "+ currentPlayer.cash+ " Nards";
+          var purchase = "Congratulation ! </br>You Have Gotten " +currentSquareObj.value +" Spins !<br>You have a total of "+ currentPlayer.cash+ " Spins";
           document.querySelector("rewardmess h1").innerHTML= purchase
           document.querySelector("rewardmess").classList.remove("hidden");
 
           updateByID(
             "messagePara",
-            "You have " + currentPlayer.cash +" Nards"
+            "You have " + currentPlayer.cash +" Spins"
           );
+          localStorage.setItem("spin",currentPlayer.cash)
           document.getElementById("rollButton").disabled=true
           let tomorrowdate = new Date();
           tomorrowdate.setDate(tomorrowdate.getDate()+1);
           let currentdate = new Date();
           document.querySelector("info").innerHTML=tomorrowdate
-          
+          localStorage.setItem("monotimer",tomorrowdate)
           let monotime= currentdate.getDate()+"/"+currentdate.getMonth()+"/"+currentdate.getFullYear()+" "+currentdate.getHours()+":"+currentdate.getMinutes()+":"+currentdate.getSeconds();
           document.querySelector("notice").classList.add("selected")
-          document.querySelector("notice h1").innerHTML= "Return at "+tomorrowdate.getDate()+"/"+tomorrowdate.getMonth()+"/"+tomorrowdate.getFullYear()+" "+tomorrowdate.getHours()+":"+tomorrowdate.getMinutes()+":"+tomorrowdate.getSeconds();
+          document.querySelector("notice h1").innerHTML= "Return at "+tomorrowdate.getDate()+"/"+(tomorrowdate.getMonth()+1)+"/"+tomorrowdate.getFullYear()+" "+tomorrowdate.getHours()+":"+tomorrowdate.getMinutes()+":"+tomorrowdate.getSeconds();
           
           // var char = document.querySelector("span")
           // var list = document.getElementsByClassName("cell square")
@@ -147,26 +167,34 @@
 
 
           //put api
+          var jsondata ={"name": localStorage.getItem("Name"),
+          "password": localStorage.getItem("password"),
+          "uniqueid": localStorage.getItem("useless"),
+          "datejoined": localStorage.getItem("datejoin"),
+          "monopoly": localStorage.setItem("monotimer",tomorrowdate),
+          "spinturn": localStorage.getItem("spin"),
+          "monopolylocation": localStorage.setItem("location",currentSquareId),
+          "voucherlist": [JSON.parse(localStorage.getItem("vouchersJSON"))],
+          "Cart": [JSON.parse(localStorage.getItem("cartJSON"))]};
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": `https://assign2project-142c.restdb.io/rest/accountdetails/${localStorage.getItem("id")}`,
+            "method": "PUT",
+            "headers": {
+              "content-type": "application/json",
+              "x-apikey": "63d1f6cda95709597409cf9e",
+              "cache-control": "no-cache"
+            },
+            "processData": false,
+            "data": JSON.stringify(jsondata)
+          }
+          
+          $.ajax(settings).done(function (response) {
+            console.log(response);
+            console.log(response.status);
 
-          // let url = "specify website"/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          // let payload = {
-          //   _id:4,
-          //   name:,
-          //   password:,
-          //   uniqueid:,
-          //   datejoined:,
-          //   monopoly:monotime,
-          //   spinturn:,
-          //   monopolylocation:currentSquareId,
-          // voucherlist:,
-          // cart:,
-          // }
-          // let option ={
-          //   method:"PUT",
-          //   body: JSON.stringify(payload)
-          // }
-          // fetch(url,option)
-          // .then(Response =>console.log(Response.status))
+          });
 
 
 

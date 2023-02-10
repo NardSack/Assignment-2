@@ -86,9 +86,39 @@ var settings = {
                             localStorage.setItem("monotimer",element.monopoly)
                             localStorage.setItem("location",element.monopolylocation)
                             localStorage.setItem("spin",element.spinturn)
-                            localStorage.setItem("ID",element.uniqueid)
-                            localStorage.setItem("vouchersJSON",element.voucherlist)
-                            localStorage.setItem("cartJSON",element.Cart)
+                            localStorage.setItem("useless",element.uniqueid)
+                            var voucherlist =element.voucherlist
+                            if(voucherlist == {})
+                            {
+                                voucherlist ="1"
+                            }
+                            else
+                            {
+                            var IT='';
+                            let list = voucherlist.slice(1,-1).split(",")
+
+                            for (let index = 0; index < list.length; index++) {
+                                const element = list[index];
+                                console.log(element)
+                                console.log(list.length)
+                                console.log(IT)
+                                if (index == list.length-1)
+                                {
+                                    IT+= element
+                                }
+                                else
+                                {
+                                    console.log("hit")
+                                    IT+= element+","
+                                }
+                            }
+                            voucherlist=IT
+                            }
+                            localStorage.setItem("vouchersJSON",voucherlist)
+
+                            localStorage.setItem("cartJSON",element.Cart)///////////////////
+                            localStorage.setItem("password",element.password)
+                            localStorage.setItem("id",element._id)
                             
                     window.location="../accountfile/account.html"
                 }
@@ -125,16 +155,49 @@ var settings = {
                 var newpass=document.querySelector("#new-password").value;
                 if (checks.checked)
                 {
-                    currentdate=Date()
+                    currentdate=new Date()
                     console.log(currentdate)
                         localStorage.setItem("Name",newnam)
                         localStorage.setItem("monotimer",currentdate)
                         localStorage.setItem("location",1)
                         localStorage.setItem("spin",0)
-                        localStorage.setItem("ID",accountlist.responseJSON.length+1) //-- use the length of the account list 
+                        localStorage.setItem("useless",accountlist.responseJSON.length+1) //-- push api
                         localStorage.setItem("vouchersJSON",{})
                         localStorage.setItem("cartJSON",{})
-                window.location="../accountfile/account.html"
+                        localStorage.setItem("password",newpass)
+                        var jsondata = 
+                        {"name": localStorage.getItem("Name"),
+                        "password": localStorage.getItem("password"),
+                        "uniqueid": localStorage.getItem("useless"),
+                        "datejoined": Date(),
+                        "monopoly": localStorage.getItem("monotimer"),
+                        "spinturn": localStorage.getItem("spin"),
+                        "monopolylocation": localStorage.getItem("location"),
+                        "voucherlist": localStorage.getItem("vouchersJSON"),
+                        "Cart": localStorage.getItem("cartJSON")};
+                    
+                        var setting = {
+                          "async": true,
+                          "crossDomain": true,
+                          "url": "https://assign2project-142c.restdb.io/rest/accountdetails",
+                          "method": "POST",
+                          "headers": {
+                            "content-type": "application/json",
+                            "x-apikey": "63d1f6cda95709597409cf9e",
+                            "cache-control": "no-cache"
+                          },
+                          "processData": false,
+                          "data": JSON.stringify(jsondata)
+                        }
+                        
+                        $.ajax(setting).done(function (response) {
+                          console.log(response);
+                          console.log(response.status)
+                          console.log("create new hooman")
+                        //   localStorage.setItem("id",response[response.length-1]._id)//////////////////////////////////////////////////////////////////////////////
+                        //   localStorage.setItem("datejoin",reponse[response.length-1].datejoined)
+                        });
+                    // window.location="../accountfile/account.html"
                 }
                 else{
                 console.log("reached")
