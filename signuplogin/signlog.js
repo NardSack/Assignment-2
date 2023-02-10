@@ -69,21 +69,23 @@ var settings = {
     //     });
     //   });
     var but= document.querySelector("#loadbutton")
+    console.log(but)
     but.addEventListener("click",function(event){
-
+        event.preventDefault()
+        console.log("hittt")
         function secondfunction(){
             setTimeout(function(){
             var names = document.querySelector("#contact-Name").value;
             var password=document.querySelector("#contact-Password").value;
             console.log(names)
             console.log(password)
-            console.log(accountlist.responseJSON[1].name)
+            // console.log(accountlist.responseJSON[1].name)
             console.log(accountlist.responseJSON)
-            console.log(accountlist.responseJSON[1].password)
+            // console.log(accountlist.responseJSON[1].password)
             
             for (let index = 0; index < accountlist.responseJSON.length; index++) {
                 const element = accountlist.responseJSON[index];
-                console.log(1)
+                // console.log(1)
                 
                 if (names == element.name && password ==element.password)
                 {
@@ -93,15 +95,22 @@ var settings = {
                             localStorage.setItem("spin",element.spinturn)
                             localStorage.setItem("useless",element.uniqueid)
                             var voucherlist =element.voucherlist
-                            if(voucherlist == {})
+                            console.log(voucherlist)
+
+                            
+                            let list=''
+                            try
+                            {
+                                console.log("hit2")
+                                var IT='';
+                                list = voucherlist.slice(1,-1).split(",");
+                            } 
+                            catch (error)
                             {
                                 voucherlist ="1"
-                            }
-                            else
-                            {
-                            var IT='';
-                            let list = voucherlist.slice(1,-1).split(",")
+                                console.log("hit1")
 
+                            }
                             for (let index = 0; index < list.length; index++) {
                                 const element = list[index];
                                 console.log(element)
@@ -118,24 +127,25 @@ var settings = {
                                 }
                             }
                             voucherlist=IT
-                            }
+                            
                             localStorage.setItem("vouchersJSON",JSON.stringify(voucherlist))
                             var cartlist = element.Cart
-                            if(cartlist == {})
+                            let lists = ""
+                            try
+                            {
+                                var IT='';
+                                lists = cartlist.slice(1,-1).split(",")
+                            }
+                            catch(error)
                             {
                                 cartlist ="1"
                             }
-                            else
-                            {
-                            var IT='';
-                            let list = cartlist.slice(1,-1).split(",")
-
-                            for (let index = 0; index < list.length; index++) {
-                                const element = list[index];
+                            for (let index = 0; index < lists.length; index++) {
+                                const element = lists[index];
                                 console.log(element)
-                                console.log(list.length)
+                                console.log(lists.length)
                                 console.log(IT)
-                                if (index == list.length-1)
+                                if (index == lists.length-1)
                                 {
                                     IT+= element
                                 }
@@ -146,7 +156,7 @@ var settings = {
                                 }
                             }
                             cartlist=IT
-                        }
+                        
                             localStorage.setItem("cartJSON",JSON.stringify(cartlist))
                             localStorage.setItem("password",element.password)
                             localStorage.setItem("id",element._id)

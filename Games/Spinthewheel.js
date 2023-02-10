@@ -109,6 +109,7 @@ function unhide(){setTimeout(function(){
     message.removeAttribute("hidden")
     message.style.zIndex=30
     spin = spin -1
+    console.log(spin)
     var element =localStorage.getItem("element")
     if (spin == 0)
     {
@@ -118,6 +119,7 @@ function unhide(){setTimeout(function(){
     {
         message.innerHTML= `congrats you won <h3>${element}</h3>\n<button id="home"><a href="../HomePage/index.html">Go back to main page</a></button><button onclick="hide()">Spin again</button>`;
     }
+    console.log(voucherlist)
     if(voucherlist=='non')
     {
         voucherlist={"voucher":parseInt(localStorage.getItem("elementvoucher"))}
