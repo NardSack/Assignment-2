@@ -30,13 +30,13 @@ var settings = {
   "async": true,
   "crossDomain": true,
   // "url": "https://assign2project-142c.restdb.io/rest/itemsdetail",
-  "url": "https://signlog-8d3d.restdb.io/rest/itemsdetail",
+  "url": "https://assignment2-09fd.restdb.io/rest/itemsdetail",
   
   "method": "GET",
   "headers": {
     "content-type": "application/json",
     // "x-apikey": "63d1f6cda95709597409cf9e",
-    "x-apikey": "63e129ac3bc6b255ed0c470f",
+    "x-apikey": "63e5fd58478852088da67fee",
 
     "cache-control": "no-cache"
   }
@@ -177,13 +177,13 @@ function saveData(){
   "async": true,
   "crossDomain": true,
   // "url": `https://assign2project-142c.restdb.io/rest/itemsdetail/${itemids}`,
-  "url": `https://signlog-8d3d.restdb.io/rest/itemsdetail/${itemids}`,
+  "url": `https://assignment2-09fd.restdb.io/rest/itemsdetail/${itemids}`,
 
   "method": "PUT",
   "headers": {
     "content-type": "application/json",
     // "x-apikey": "63d1f6cda95709597409cf9e",
-    "x-apikey": "63e129ac3bc6b255ed0c470f",
+    "x-apikey": "63e5fd58478852088da67fee",
 
     "cache-control": "no-cache"
   },
