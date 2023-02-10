@@ -2,67 +2,63 @@
 
 Name of shop : UNIQLO
 
-1. Checkboxes to categorize products (eg. CLothing, Accessories)
-2. Inventory : shirt Pants Asscessory- earings,hats
+1. Checkboxes to categorize products (eg. CLothing: Shirt, Pants)
+2. Inventory : shirt Pants
 
 sign in and login button is javacript use of link html that cher shows
 
 farni color scheme #FF00A0 hex
 Contact Us page： Instagram
 
-Pages: Inventory -- Signin , ContactUs(footer), Shopping cart ,checkout page , customer service-pre prepared questions for (text box for other option) desscription page of items with review
-account page - with currency , credentials and package status , add a card
-possible game: spin the wheel, mining of ingame currency
-currency= NUT OR BAG SACK
-possible 3d for preview item
-filiter is dropdown
-chat is faded in and out (hidden when button press it moves from outside page to inside and than unhidden fade [to fade in])
-give option for size when clothing is picked(shirt and pants)
+Pages: Inventory -- Signin , login, Uniqlo Instagram, Shopping cart,Product page which includes description,checkout , price type of clothes and review ,reviews section (textbox) for buyers to leave reviews( Usage of Restdb) 
 
-dice game
-sales countdown timer
-scanveger hunt
-scratch and win
+account page -with vouchers, button that leads to games ( spin the wheel and monopoly),cart page that consist of the items that buyers place into their cart. The account page also displays the User's name
+
+Games page- Spin the wheel to earn vouchers(eg. 2dollar discount voucher) and monopoly games to earn chances to spin the wheel.
+Monopoly Game Timer: Only able to be played once a day 24hrs
+
+(Side)Navigation bar- displays the items added into cart and filter to be able to choose the categories that you want to search for (Shirt,Pants, Women and Men) Filter is checkboxes. Products that are not ticked will be visibility:hidden.
+
 
 ## readme starts here
 
 ### Ecommerce UNIQLO
 
-E-commerce website for UNIQLO where users can select and buy clothes and have Gamifications in the website.
+E-commerce website for UNIQLO where users can select and buy clothes and have Gamifications in the website to earn discounts on the products (vouchers). These games allows the user to be able to enjoy the process of shopping and also probes the user to purchase products
 
 ### Design Process
 
-Wireframe was designed in a way that is simple and functional by having a popup navigation bar that have user account detail following with category filters to filiter the items.
-The layout was also rearranged for mobileview
-we look into shopee, lazada and other online ecommerce store for inspiration
+Wireframe was designed in a way that is simple and functional by having a popup navigation bar at the side(toggle on and off) that have user account detail following with category filters to filter the items.
+The layout is rearanged for both mobile view and computer view.
+we look into shopee, lazada, UNIQLO and other online ecommerce store for inspiration
 (Uniqlo)
 
-user do not need to have an account to purchase items
-Only users that have an account can earn nard coins when purchasing items
-an account consist of date join and credit card infomation ,name, ability to change password. After purchasing they are able to rate the transaction after they get their parcel
-Vouchers have expiring dates and a limit like max $20.
+user do not need to have an account to purchase items 
+Only users that have an account can earn vouchers when playing game and purchasing items.
+an account consist of date join and name, ability to change password.
+
 
 ### Feature
 
 1. Button to toggle on and off Navigation Bar for better viewing of Products
 
-2)Slideshow To Showcase events, discounts
+2.Slideshow To Showcase events, discounts, collabrations
 
-3. Customer Service Button at the bottom of the page for Users to contact when in need of help
+3. Use of Lottie animation on navigation bar toggle this ---> ... , and loading animation for log in and sign up page where the user clicks the button.
 
-4. Signing up Page , Logging In page , Change Password for users to create account and Log in
+4. Signing up Page , Logging In page , Change Password for users to create account and Log in, an error will appear when there the data entered is incorrect.
 
-5. Contact us Feature ( We will be creating an Instagram account and Clicking on the button will link to the account)
+5. Contact us Feature ( We will be linking to uniqlo's Instagram and Clicking on the button will link to the ig page)
 
-6. Description Page where Buyers are able to better look at the Product with description, reviews, rating. They are able to Add to Cart/Buy now
+6. Description Page where Buyers are able to better look at the Product with description, reviews. They are able to Add to Cart/Buy now/ leave a review
 
-7. Spin The Wheel Game Which consist of % discounts for 5 choosen items from the shop (eg. 5%, 25% etc)
+7. chances to spin the wheel are obtainable from monopoly game (chance of rolling dice once every 24hrs)
 
-8. Nards (in game coins) are obtainable from Purchasing of items (10dollar spent 1 coin)
+8. account page where the user is able to view the number of vouchers they have ,able to change their password and also view whats inside of their cart
 
-9. Vouchers are able to be exchanged with Nards
+9. Vouchers are able obtainable from spinning the wheel
 
-10. Filter for different type of items ( shirt,pant, voucher)
+10. Filter for different type of items ( shirt,pant, women, men)
 
 [link for wire frame here]
 references
@@ -81,20 +77,17 @@ WireFrame Doc = https://xd.adobe.com/view/ec5f24e6-6dda-42be-bb31-ad4e86242f0d-b
    2. Displays the Vouchers you have
    3. Changing Password Option
    4. Total Price of items Ticked in Cart and Checkout Button
-   5. Name of User and the Number of Nards you have
+   5. Name of User
+   
 
-coin from purchase , voucher from exchanging with coin.
+Features to be added if given more time
 
-Features to be added
+1. More games like scavenger hunt, tic tac toe etc
+2. checking out page which allows buyers to purchase the products
+3. Adding a search bar so that users can enter keywords and search for products easier
+4. customer service popup chatbox where there will be AI replies
+5. improve the aesthetics of the website, more fancy
 
-1. checkbox filiters
-2. Spining of wheel game
-3. Mobile view
-4. customer service popup chatbox
-5. cart system and the math in counting total price
-6. creating and signing in an account
-
-7)monopoly game, coins can be obtained , scratch card 8) scavenger hunt (maybe)
 
 ### Credits
 
@@ -104,11 +97,12 @@ Features to be added
 2. https://cdn.shopify.com/s/files/1/0431/5322/7943/files/Screenshot_2022-12-29_at_07.04.19_x800.png?v=1672297468
 3. https://two-store.be/wp-content/uploads/2022/08/Liggende-banner-mens-clothing-aug-22.jpg
 
-(Product Images) {copy from database CSV}
+(Product Images) {copy from database CSV}.
+Credits to uniqlo for all the images of the products used inside the website ( Link is inside the excel file in restdb)
 
 ### Acknowledgement
 
-We Looked into Shopee, Lazada for Inspirations on the layout of our homepage.
+We Looked into Shopee, Lazada and uniqlo for Inspirations on the layout of our homepage.
 
 
 8 min video walkthrough with face cam
