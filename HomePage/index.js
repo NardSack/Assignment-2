@@ -121,7 +121,8 @@ productpage.style.top="-110%"
         // localStorage.setItem(`${item._id}`,)
         productpage.querySelector("review").innerHTML=`<p style="Display: None;">${item._id}</p>`
         productpage.querySelector("picture").innerHTML=`<img src="${item.PictureLink}" class="clickpic"></img>`
-        productpage.querySelector("description").innerHTML=`<h2>${item.NameofProduct}</h2><h3>Type ${item.Gender} ${item.TypeofProduct}</h3></br><p>${item.Descriptionofproduct}</p></br><p>${item.PriceofProduct}</p>`
+        localStorage.setItem("piclink",item.PictureLink)
+        productpage.querySelector("description").innerHTML=`<h2>${item.NameofProduct}</h2><h3>Type ${item.Gender} ${item.TypeofProduct}</h3></br><p>${item.Descriptionofproduct}</p></br><h4>${item.PriceofProduct}</h4>`
         item.review.forEach(function(things){
           productpage.querySelector("review").innerHTML += `${things.userid}: ${things.comments}</br>`
           
@@ -222,9 +223,28 @@ var display=document.querySelector("currentcart")
   {
     display.innerHTML=`<cont><img src=${cart.pic}" class="cartpic"><po><p>${cart.nameofprod}</p></img><p>${cart.description}</p></po></cont></br><p>$${cart.price}</p><p>Quanitiy:${cart.number}</p>`
   }
-//   function displaycart(){
-
-// }
+  function addcart(){
+    var lists = JSON.parse(localStorage.getItem("cartJSON"))
+    var pic = localStorage.getItem("piclink")
+    var itemname = productpage.querySelector("description").querySelector("h2").innerHTML
+    var descriptions = productpage.querySelector("description").querySelector("p").innerHTML
+    var price = productpage.querySelector("description").querySelector("h4").innerHTML
+    var i = false
+    console.log(lists)
+    lists.forEach(item=>{ 
+      if (item.nameofprod==itemname && item.pic==pic)
+      {
+        item.number= item.number+1
+        i = true
+      }
+    });
+    if (i)
+    {
+      lists.push({"pic":pic,"nameofprod":itemname,"description":descriptions,"price": price,"number":1})
+    }
+    console.log(lists)
+    localStorage.setItem("cartJSON",JSON.stringify(lists))
+}
 
 
 
@@ -299,5 +319,3 @@ var display=document.querySelector("currentcart")
 // // .then(function(response){ii=response.data})
 
 // }
-
-
