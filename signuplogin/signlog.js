@@ -1,11 +1,15 @@
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://assign2project-142c.restdb.io/rest/accountdetails",
+    // "url": "https://assign2project-142c.restdb.io/rest/accountdetails",
+    "url": "https://signlog-8d3d.restdb.io/rest/accountdetails",
+
     "method": "GET",
     "headers": {
       "content-type": "application/json",
-      "x-apikey": "63d1f6cda95709597409cf9e",
+    //   "x-apikey": "63d1f6cda95709597409cf9e",
+    "x-apikey": "63e129ac3bc6b255ed0c470f",
+
       "cache-control": "no-cache"
     }
   }
@@ -80,9 +84,10 @@ var settings = {
             for (let index = 0; index < accountlist.responseJSON.length; index++) {
                 const element = accountlist.responseJSON[index];
                 console.log(1)
+                
                 if (names == element.name && password ==element.password)
                 {
-                            localStorage.setItem("Name",element.name)
+                            localStorage.setItem("name",element.name)
                             localStorage.setItem("monotimer",element.monopoly)
                             localStorage.setItem("location",element.monopolylocation)
                             localStorage.setItem("spin",element.spinturn)
@@ -183,7 +188,7 @@ var settings = {
                 {
                     currentdate=new Date()
                     console.log(currentdate)
-                        localStorage.setItem("Name",newnam)
+                        localStorage.setItem("name",newnam)
                         localStorage.setItem("monotimer",currentdate)
                         localStorage.setItem("location",1)
                         localStorage.setItem("spin",0)
@@ -192,7 +197,7 @@ var settings = {
                         localStorage.setItem("cartJSON",JSON.stringify([]))
                         localStorage.setItem("password",newpass)
                         var jsondata = 
-                        {"name": localStorage.getItem("Name"),
+                        {"name": localStorage.getItem("name"),
                         "password": localStorage.getItem("password"),
                         "uniqueid": localStorage.getItem("useless"),
                         "datejoined": Date(),
@@ -205,11 +210,15 @@ var settings = {
                         var setting = {
                           "async": true,
                           "crossDomain": true,
-                          "url": "https://assign2project-142c.restdb.io/rest/accountdetails",
+                        //   "url": "https://assign2project-142c.restdb.io/rest/accountdetails",
+                        "url": "https://signlog-8d3d.restdb.io/rest/accountdetails",
+
                           "method": "POST",
                           "headers": {
                             "content-type": "application/json",
-                            "x-apikey": "63d1f6cda95709597409cf9e",
+                            // "x-apikey": "63d1f6cda95709597409cf9e",
+                            "x-apikey": "63e129ac3bc6b255ed0c470f",
+
                             "cache-control": "no-cache"
                           },
                           "processData": false,
@@ -239,6 +248,19 @@ var settings = {
                 }
             },4000)
         }
+        // console.log(localstorage.getItem("Name"))
+        //  if(localStorage.name==null){
+
+        //  }
+        //  else{
+        //     document.getElementById("changing").innerHTML="My Account";
+        //     document.querySelector("id").querySelector("a").innerHTML("../accountfile/account.html")
+            
+
+        //  }
+
+
+
         function show() {
             document.getElementById('loadd').style.display = "block";
             setTimeout(function(){

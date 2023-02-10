@@ -164,7 +164,9 @@ row{
 
 @media (min-width:390px) and (max-width:844px) {
 
-
+#comments{
+width:98%
+}
  .title{
     font-size: 20px;
     /* float:right */
