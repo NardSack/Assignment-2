@@ -188,8 +188,8 @@ var settings = {
                         localStorage.setItem("location",1)
                         localStorage.setItem("spin",0)
                         localStorage.setItem("useless",accountlist.responseJSON.length+1) //-- push api
-                        localStorage.setItem("vouchersJSON",{})
-                        localStorage.setItem("cartJSON",{})
+                        localStorage.setItem("vouchersJSON",JSON.stringify([]))
+                        localStorage.setItem("cartJSON",JSON.stringify([]))
                         localStorage.setItem("password",newpass)
                         var jsondata = 
                         {"name": localStorage.getItem("Name"),
@@ -199,8 +199,8 @@ var settings = {
                         "monopoly": localStorage.getItem("monotimer"),
                         "spinturn": localStorage.getItem("spin"),
                         "monopolylocation": localStorage.getItem("location"),
-                        "voucherlist": localStorage.getItem("vouchersJSON"),
-                        "Cart": localStorage.getItem("cartJSON")};
+                        "voucherlist": JSON.parse(localStorage.getItem("vouchersJSON")),
+                        "Cart": JSON.parse(localStorage.getItem("cartJSON"))};
                     
                         var setting = {
                           "async": true,
@@ -223,7 +223,7 @@ var settings = {
                         //   localStorage.setItem("id",response[response.length-1]._id)//////////////////////////////////////////////////////////////////////////////
                         //   localStorage.setItem("datejoin",reponse[response.length-1].datejoined)
                         });
-                    // window.location="../accountfile/account.html"
+                    window.location="../accountfile/account.html"
                 }
                 else{
                 console.log("reached")
