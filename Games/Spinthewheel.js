@@ -167,11 +167,15 @@ function unhide(){setTimeout(function(){
           var settings = {
             "async": true,
             "crossDomain": true,
-            "url": `https://assign2project-142c.restdb.io/rest/accountdetails/${localStorage.getItem("id")}`,
+            // "url": `https://assign2project-142c.restdb.io/rest/accountdetails/${localStorage.getItem("id")}`,
+            "url": `https://signlog-8d3d.restdb.io/rest/accountdetails/${localStorage.getItem("id")}`,
+
             "method": "PUT",
             "headers": {
               "content-type": "application/json",
-              "x-apikey": "63d1f6cda95709597409cf9e",
+              // "x-apikey": "63d1f6cda95709597409cf9e",
+              "x-apikey": "63e129ac3bc6b255ed0c470f",
+
               "cache-control": "no-cache"
             },
             "processData": false,
