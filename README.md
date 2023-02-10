@@ -67,7 +67,7 @@ references
 
 html, javascript, css, Adobe XD</n>
 WireFrame Doc = https://xd.adobe.com/view/ec5f24e6-6dda-42be-bb31-ad4e86242f0d-b90c/ </n>
-GiTHUB -page = https://nardsack.github.io/Assignment-2/HomePage/index.html
+GiTHUB -page = https://nardsack.github.io/Assignment-2/
 
 ### Testing
 
