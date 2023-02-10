@@ -2,9 +2,18 @@ var cart=JSON.parse(localStorage.getItem("cartJSON"))
 console.log(cart)
 for (var i = 0; i < cart.length; i++){
 
+var element = cart[i]
 
-
-document.querySelector(".checkbox-label").innerHTML=carts
+document.querySelector(".checkbox-tile").innerHTML=''
+var display=document.querySelector(".checkbox-label")
+  if (element == [])
+  {
+    display.innerHTML="click add to cart to add items to cart farni"
+  }
+  else
+  {
+    display.innerHTML=`<cont><img src=${element.pic}" class="cartpic"><po><p>${element.nameofprod}</p></img><p>${element.description}</p></po></cont></br><p>$${element.price}</p><p>Quanitiy:${element.number}</p>`
+  }
 
 }
  const para = document.createElement("span");
@@ -15,8 +24,9 @@ para.className="checkbox-label";
 var names= localStorage.getItem("name")
 console.log(names)
 document.querySelector("useraccount").querySelector("h2").innerHTML= "User: "+names;
-var voucher = localStorage.getItem("voucherJSON")
-document.querySelector("voucherlist").querySelector("span").innerHTML=voucher;
+var voucher = JSON.parse(localStorage.getItem("vouchersJSON"))
+console.log(voucher)
+document.querySelector("voucherlist").querySelector("span").innerHTML+="$"+voucher.voucher +" voucher </br>";
 
 
 var jsondata ={"name": localStorage.getItem("Name"),
@@ -36,7 +46,7 @@ var settings = {
   "method": "PUT",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": "63e129ac3bc6b255ed0c470f",
+    "x-apikey": "63e5fd58478852088da67fee",
     "cache-control": "no-cache"
   },
   "processData": false,

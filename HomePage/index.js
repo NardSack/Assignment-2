@@ -123,7 +123,9 @@ productpage.style.top="-110%"
         productpage.querySelector("picture").innerHTML=`<img src="${item.PictureLink}" class="clickpic"></img>`
         localStorage.setItem("piclink",item.PictureLink)
         productpage.querySelector("description").innerHTML=`<h2>${item.NameofProduct}</h2><h3>Type ${item.Gender} ${item.TypeofProduct}</h3></br><p>${item.Descriptionofproduct}</p></br><h4>${item.PriceofProduct}</h4>`
+        console.log("run")
         item.review.forEach(function(things){
+          console.log("run")
           productpage.querySelector("review").innerHTML += `${things.userid}: ${things.comments}</br>`
           
         })
@@ -242,6 +244,8 @@ var display=document.querySelector("currentcart")
     // lists=lists
     var numberofitems=1
     var prices = 0
+    try
+    {
     lists.forEach(item=>{ 
       if (item.nameofprod==itemname && item.pic==pic)
       {
@@ -251,12 +255,18 @@ var display=document.querySelector("currentcart")
         i = true
       }
     });
-
-      lists.push({"pic":pic,"nameofprod":itemname,"description":descriptions,"price": prices,"number":numberofitems})
+    lists.push({"pic":pic,"nameofprod":itemname,"description":descriptions,"price": price,"number":numberofitems})
+  console.log(lists)
+  }
+  catch(error)
+  {
+    lists=[]
+      lists.push({"pic":pic,"nameofprod":itemname,"description":descriptions,"price": price,"number":numberofitems})
     console.log(lists)
+  }
     localStorage.setItem("cartJSON",JSON.stringify(lists))
     display()
-    
+  
 }
 
 
