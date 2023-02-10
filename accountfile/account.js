@@ -1,8 +1,15 @@
-var cart=localStorage.getItem("cartJSON")
+var cart=JSON.parse(localStorage.getItem("cartJSON"))
+console.log(cart)
+for (var i = 0; i < cart.length; i++){
 
+
+
+document.querySelector(".checkbox-label").innerHTML=carts
+
+}
  const para = document.createElement("span");
 para.className="checkbox-label";
-document.querySelector(".checkbox-label").innerHTML=cart
+// document.querySelector(".checkbox-label").innerHTML=cart
 
 
 var names= localStorage.getItem("name")
