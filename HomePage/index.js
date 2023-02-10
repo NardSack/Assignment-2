@@ -211,18 +211,26 @@ targetid = event.target.id
 });
 
 // localStorage.setItem("cartJSON",JSON.stringify({"pic":"https://image.uniqlo.com/UQ/ST3/sg/imagesgoods/457579/item/sggoods_09_457579.jpg?width=1008&impolicy=quality_75","nameofprod":"Some Pants","description":"Selvedge denim looks and feels better the more you wear it. “Red ear” styling is a distinctive feature.","price": 60,"number":1}))
+// localStorage.setItem("cartJSON",JSON.stringify([]))
+display()
+function display(){
 var cart = JSON.parse(localStorage.getItem("cartJSON"))
-console.log(cart)  
+console.log(cart)
+cart.forEach(element => {
+  
+
 console.log(cart.description)  
 var display=document.querySelector("currentcart")
-  if (cart == "1")
+  if (element == [])
   {
     display.innerHTML="click add to cart to add items to cart farni"
   }
   else
   {
-    display.innerHTML=`<cont><img src=${cart.pic}" class="cartpic"><po><p>${cart.nameofprod}</p></img><p>${cart.description}</p></po></cont></br><p>$${cart.price}</p><p>Quanitiy:${cart.number}</p>`
+    display.innerHTML=`<cont><img src=${element.pic}" class="cartpic"><po><p>${element.nameofprod}</p></img><p>${element.description}</p></po></cont></br><p>$${element.price}</p><p>Quanitiy:${element.number}</p>`
   }
+});
+}
   function addcart(){
     var lists = JSON.parse(localStorage.getItem("cartJSON"))
     var pic = localStorage.getItem("piclink")
@@ -230,21 +238,25 @@ var display=document.querySelector("currentcart")
     var descriptions = productpage.querySelector("description").querySelector("p").innerHTML
     var price = productpage.querySelector("description").querySelector("h4").innerHTML
     var i = false
-    console.log([lists])
-    lists=[lists]
+    console.log(lists)
+    // lists=lists
     var numberofitems=1
+    var prices = 0
     lists.forEach(item=>{ 
       if (item.nameofprod==itemname && item.pic==pic)
       {
         item.number= item.number+1
         numberofitems=item.number
+        prices =parseInt(price)+prices
         i = true
       }
     });
 
-      lists.push({"pic":pic,"nameofprod":itemname,"description":descriptions,"price": price,"number":numberofitems})
+      lists.push({"pic":pic,"nameofprod":itemname,"description":descriptions,"price": prices,"number":numberofitems})
     console.log(lists)
     localStorage.setItem("cartJSON",JSON.stringify(lists))
+    display()
+    
 }
 
 

@@ -11,3 +11,13 @@ document.querySelector("useraccount").querySelector("h2").innerHTML= "User: "+na
 var voucher = localStorage.getItem("voucherJSON")
 document.querySelector("voucherlist").querySelector("span").innerHTML=voucher;
 
+var jsondata ={"name": localStorage.getItem("Name"),
+          "password": localStorage.getItem("password"),
+          "uniqueid": localStorage.getItem("useless"),
+          "datejoined": localStorage.getItem("datejoin"),
+          "monopoly": localStorage.getItem("monotimer"),
+          "spinturn": localStorage.getItem("spin"),
+          "monopolylocation": localStorage.getItem("location"),
+          "voucherlist": JSON.parse(localStorage.getItem("vouchersJSON")),
+          "Cart": JSON.parse(localStorage.getItem("cartJSON"))
+        };
