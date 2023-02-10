@@ -1,28 +1,28 @@
 // if (localStorage.getItem("allitemlist")!=[])
 // {
-  // let line2=``
-  // var list = JSON.parse(localStorage.getItem("allitemlist"))
-  // for (var i = 0; i < list.length; i++) {
-  //   let description = list[i].Descriptionofproduct;
-  //   let name = list[i].NameofProduct
-  //   let price = list[i].PriceofProduct
-  //   let type = list[i].TypeofProduct
-  //   let link = list[i].PictureLink
-  //   let id = list[i]._id
-  //   let gender =list[i].Gender
-  //   reviewlist.push(list[i])
-  //   let line1 = `<product-item class="${type} ${gender}"><img src="${link}"><p><h4>${name}</h4><p class="prod-desc">${description}</p><h3>${price}</h3></p><button class="product-butt" id="${id}" onclick="">View Product</button></product-item>`
-  //   line2 = `${line2}${line1}`
-  //   console.log(`${(i+1)%3} and ${i} and ${list.length}`)
-  //   if ((i+1)%3 == 0 && i != 0)
-  //   {
-  //     document.getElementById("content").innerHTML+= `<row>${line2}</row>`
-  //     line2=``
-  //   }
-  //   else if (i== list.length-1)
-  //   { console.log(i)
-  //     document.getElementById("content").innerHTML+= `<row>${line2}</row>`}
-  //   }
+//   let line2=``
+//   var list = JSON.parse(localStorage.getItem("allitemlist"))
+//   for (var i = 0; i < list.length; i++) {
+//     let description = list[i].Descriptionofproduct;
+//     let name = list[i].NameofProduct
+//     let price = list[i].PriceofProduct
+//     let type = list[i].TypeofProduct
+//     let link = list[i].PictureLink
+//     let id = list[i]._id
+//     let gender =list[i].Gender
+//     reviewlist.push(list[i])
+//     let line1 = `<product-item class="${type} ${gender}"><img src="${link}"><p><h4>${name}</h4><p class="prod-desc">${description}</p><h3>${price}</h3></p><button class="product-butt" id="${id}" onclick="">View Product</button></product-item>`
+//     line2 = `${line2}${line1}`
+//     console.log(`${(i+1)%3} and ${i} and ${list.length}`)
+//     if ((i+1)%3 == 0 && i != 0)
+//     {
+//       document.getElementById("content").innerHTML+= `<row>${line2}</row>`
+//       line2=``
+//     }
+//     else if (i== list.length-1)
+//     { console.log(i)
+//       document.getElementById("content").innerHTML+= `<row>${line2}</row>`}
+//     }
 // }
 // else if (localStorage.getItem("allitemlist")==[])
 // {
@@ -210,7 +210,7 @@ targetid = event.target.id
    return targetid
 });
 
-// localStorage.setItem("cartJSON",JSON.stringify({"nameprod":"jacket","pic":"https://image.uniqlo.com/UQ/ST3/sg/imagesgoods/457579/item/sggoods_09_457579.jpg?width=1008&impolicy=quality_75","description":"Selvedge denim looks and feels better the more you wear it. “Red ear” styling is a distinctive feature.","price": 60,"number":1}))
+localStorage.setItem("cartJSON",JSON.stringify({"pic":"https://image.uniqlo.com/UQ/ST3/sg/imagesgoods/457579/item/sggoods_09_457579.jpg?width=1008&impolicy=quality_75","nameofprod":"Some Pants","description":"Selvedge denim looks and feels better the more you wear it. “Red ear” styling is a distinctive feature.","price": 60,"number":1}))
 var cart = JSON.parse(localStorage.getItem("cartJSON"))
 console.log(cart)  
 console.log(cart.description)  
@@ -221,7 +221,7 @@ var display=document.querySelector("currentcart")
   }
   else
   {
-    display.innerHTML=`<img src=${cart.pic}"></img><p>${cart.nameprod}</p><p>${cart.description}</p></br><p>$${cart.price}</p><p>Quanitiy:${cart.number}</p>`
+    display.innerHTML=`<cont><img src=${cart.pic}" class="cartpic"><po><p>${cart.nameofprod}</p></img><p>${cart.description}</p></po></cont></br><p>$${cart.price}</p><p>Quanitiy:${cart.number}</p>`
   }
   function addcart(){
     var lists = JSON.parse(localStorage.getItem("cartJSON"))
@@ -319,5 +319,3 @@ var display=document.querySelector("currentcart")
 // // .then(function(response){ii=response.data})
 
 // }
-
-
