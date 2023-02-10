@@ -45,3 +45,16 @@ document.querySelector("#find").addEventListener("click",function(){
     
 
 });
+console.log(localStorage.getItem("name"))
+if(localStorage.getItem("name")==null){
+    console.log("do nothing :)")
+   
+ 
+      
+   }
+   else{
+    document.querySelector("id").innerHTML="<a href='../accountfile/account.html'>My account</a>"
+    
+      
+   
+   }

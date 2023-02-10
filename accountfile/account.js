@@ -5,7 +5,9 @@ para.className="checkbox-label";
 document.querySelector(".checkbox-label").innerHTML=cart
 
 
-var name= localStorage.getItem("Name")
-document.querySelector("useraccount").querySelector("h2").innerHTML= "User: "+name;
+var names= localStorage.getItem("name")
+console.log(names)
+document.querySelector("useraccount").querySelector("h2").innerHTML= "User: "+names;
 var voucher = localStorage.getItem("voucherJSON")
 document.querySelector("voucherlist").querySelector("span").innerHTML=voucher;
+
