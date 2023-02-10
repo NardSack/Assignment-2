@@ -180,14 +180,14 @@
             "async": true,
             "crossDomain": true,
             // "url": `https://assign2project-142c.restdb.io/rest/accountdetails/${localStorage.getItem("id")}`,
-            "url": `https://signlog-8d3d.restdb.io/rest/accountdetails/${localStorage.getItem("id")}`,
+            "url": `https://assignment2-09fd.restdb.io/rest/accountdetails/${localStorage.getItem("id")}`,
 
             
             "method": "PUT",
             "headers": {
               "content-type": "application/json",
               // "x-apikey": "63d1f6cda95709597409cf9e",
-              "x-apikey": "63e129ac3bc6b255ed0c470f",
+              "x-apikey": "63e5fd58478852088da67fee",
 
               "cache-control": "no-cache"
             },
