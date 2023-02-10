@@ -210,7 +210,7 @@ targetid = event.target.id
    return targetid
 });
 
-localStorage.setItem("cartJSON",JSON.stringify({"pic":"https://image.uniqlo.com/UQ/ST3/sg/imagesgoods/457579/item/sggoods_09_457579.jpg?width=1008&impolicy=quality_75","nameofprod":"Some Pants","description":"Selvedge denim looks and feels better the more you wear it. “Red ear” styling is a distinctive feature.","price": 60,"number":1}))
+// localStorage.setItem("cartJSON",JSON.stringify({"pic":"https://image.uniqlo.com/UQ/ST3/sg/imagesgoods/457579/item/sggoods_09_457579.jpg?width=1008&impolicy=quality_75","nameofprod":"Some Pants","description":"Selvedge denim looks and feels better the more you wear it. “Red ear” styling is a distinctive feature.","price": 60,"number":1}))
 var cart = JSON.parse(localStorage.getItem("cartJSON"))
 console.log(cart)  
 console.log(cart.description)  
@@ -230,18 +230,19 @@ var display=document.querySelector("currentcart")
     var descriptions = productpage.querySelector("description").querySelector("p").innerHTML
     var price = productpage.querySelector("description").querySelector("h4").innerHTML
     var i = false
-    console.log(lists)
+    console.log([lists])
+    lists=[lists]
+    var numberofitems=1
     lists.forEach(item=>{ 
       if (item.nameofprod==itemname && item.pic==pic)
       {
         item.number= item.number+1
+        numberofitems=item.number
         i = true
       }
     });
-    if (i)
-    {
-      lists.push({"pic":pic,"nameofprod":itemname,"description":descriptions,"price": price,"number":1})
-    }
+
+      lists.push({"pic":pic,"nameofprod":itemname,"description":descriptions,"price": price,"number":numberofitems})
     console.log(lists)
     localStorage.setItem("cartJSON",JSON.stringify(lists))
 }
