@@ -221,7 +221,7 @@ align-items: center;} */
     width:350px
 } */
 }
- @media (max-width:824px){
+ @media (max-width:700px){
     productpage{
         background-color:white ;
         display: flex;

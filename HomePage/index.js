@@ -1,11 +1,15 @@
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://assign2project-142c.restdb.io/rest/itemsdetail",
+  // "url": "https://assign2project-142c.restdb.io/rest/itemsdetail",
+  "url": "https://signlog-8d3d.restdb.io/rest/itemsdetail",
+
   "method": "GET",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": "63d1f6cda95709597409cf9e",
+    // "x-apikey": "63d1f6cda95709597409cf9e",
+    "x-apikey": "63e129ac3bc6b255ed0c470f",
+
     "cache-control": "no-cache"
   }
 }
@@ -41,6 +45,9 @@ var data = $.ajax(settings).done(function (response) {
   }
   return response
 });
+
+// var elemtn =document.querySelector(".CLASS").querySelector(img).style
+
 
 var myIndex = 0;
   carousel();
@@ -120,27 +127,33 @@ function saveData(){
   }
   var list= data.responseJSON
   var itemids = productpage.querySelector("review").querySelector("p").innerHTML
-    
+  var jsondata={}
     list.forEach(function(item) {
       if (item._id==itemids)
       {
-        var i ;
+        var i="";
           for (let index = 0; index < item.review.length; index++) {
-              i  += `${item.review[index]},`;
+              i  += {"comment":`${item.review[index]}`}+',';
+              console.log(item.review[index])
 
             }
           
         i += sub
-        var jsondata = {"_id":`${itemids}`,"Gender":item.Gender,"PictureLink":item.PictureLink,"NameofProduct":item.NameofProduct,"PriceofProduct":item.PriceofProduct,"Descriptionofproduct":item.Descriptionofproduct,"TypeofProduct":item.TypeofProduct,"review":[i]};
+        jsondata = {"_id":`${itemids}`,"Gender":item.Gender,"PictureLink":item.PictureLink,"NameofProduct":item.NameofProduct,"PriceofProduct":item.PriceofProduct,"Descriptionofproduct":item.Descriptionofproduct,"TypeofProduct":item.TypeofProduct,"review":[i]};
       }
+    });
   var update = {
   "async": true,
   "crossDomain": true,
-  "url": `https://assign2project-142c.restdb.io/rest/itemsdetail/${itemids}`,
+  // "url": `https://assign2project-142c.restdb.io/rest/itemsdetail/${itemids}`,
+  "url": `https://signlog-8d3d.restdb.io/rest/itemsdetail/${itemids}`,
+
   "method": "PUT",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": "63d1f6cda95709597409cf9e",
+    // "x-apikey": "63d1f6cda95709597409cf9e",
+    "x-apikey": "63e129ac3bc6b255ed0c470f",
+
     "cache-control": "no-cache"
   },
   "processData": false,
@@ -152,7 +165,7 @@ function saveData(){
     console.log("update review yes")
   });
   comments=null
-});}
+}
 ///// check if works
 
 
