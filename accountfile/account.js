@@ -18,3 +18,21 @@ document.querySelector("useraccount").querySelector("h2").innerHTML= "User: "+na
 var voucher = localStorage.getItem("voucherJSON")
 document.querySelector("voucherlist").querySelector("span").innerHTML=voucher;
 
+var jsondata = {"field1": "new value","field2": "xxx"};
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://assignment2-09fd.restdb.io/rest/accountdetails/(ObjectID)",
+  "method": "PUT",
+  "headers": {
+    "content-type": "application/json",
+    "x-apikey": "<your CORS apikey here>",
+    "cache-control": "no-cache"
+  },
+  "processData": false,
+  "data": JSON.stringify(jsondata)
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
