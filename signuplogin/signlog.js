@@ -186,7 +186,8 @@ var settings = {
     })
 
     var but2= document.querySelector("#loadbutton2")
-    but2.addEventListener("click",function(){
+    but2.addEventListener("click",function(event){
+        event.preventDefault()
         function the2one(){
             setTimeout(function(){
                 var checks = document.querySelector("#termCon")
