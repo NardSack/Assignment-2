@@ -159,10 +159,10 @@ function saveData(){
 
 document.getElementById("content").addEventListener("click", function(event){
 
-window.targetid = event.target.id
-  // var list= data.responseJSON0
-  
-  
+targetid = event.target.id
+  // var list= data.responseJSON
+  //  console.log(targetid)
+   return targetid
 
 });
 
